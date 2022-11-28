@@ -1,5 +1,4 @@
 export const CodeCat = (props = {}) => {
-    console.log(props);
     const {color, ...restProps} = props;
     return (
         <svg {...restProps} viewBox="0 0 200 217" fill="none" xmlns="http://www.w3.org/2000/svg">

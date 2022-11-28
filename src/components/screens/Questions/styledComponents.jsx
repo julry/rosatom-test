@@ -1,28 +1,21 @@
 import styled from 'styled-components';
-import { swipe } from '../../shared/keyframes';
 import { ContentWrapper } from '../../shared/wrappers';
 import { FlexWrapper } from '../../shared/FlexWrapper';
 import { Button } from '../../shared/Button';
 import { colors } from '../../../constants/colors';
 import { Line } from './svg/Line';
 import { AddictiveElement } from './svg/AddictiveElement';
-import { Atom } from './svg/Atom';
-import { SmallCircle } from './svg/SmallCircle';
+import { Atom } from '../../shared/svg/Atom';
+import { SmallCircle } from '../../shared/svg/SmallCircle';
 import { TopLine } from './svg/TopLine';
 
 export const StyledCard = styled.div`
   position: absolute;
   height: 100%;
+  width: 100%;
   padding: 7.4962vh 8.2666vw 0;
   font-size: 20px;
   background-color: white;
-  left: 0;
-  right: 0;
-  top: ${({hadSkipped}) => hadSkipped ? '100vh' : '0'};
-  animation: ${({currentSkipped, isAgreed}) => currentSkipped ? swipe(isAgreed) : 'none'};
-  animation-duration: 0.95s;
-  animation-timing-function: cubic-bezier(.57,.21,.69,3.25);
-  animation-fill-mode: forwards;
   z-index: ${({index}) => 100 + index};
 `;
 
@@ -59,15 +52,15 @@ export const ButtonsWrapper = styled(FlexWrapper)`
 export const AnswerButton = styled(Button)`
   width: 10.4948vh;
   height: 10.4948vh;
-  max-width: 70px;
-  max-height: 70px;
+  max-width: 90px;
+  max-height: 90px;
   border-radius: 50%;
   
   & svg {
     width: 8.0453vh;
     height: 7.784vh;
-    max-width: 31px;
-    max-height: 30px;
+    max-width: 41px;
+    max-height: 40px;
   }
 `;
 
@@ -84,14 +77,6 @@ export const YesBtn = styled(AnswerButton)`
   box-shadow: 0 0 10px #003274;
 `;
 
-export const ImageWrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-grow: 1;
-  flex-shrink: 1;
-`;
 
 export const LineStyled = styled(Line)`
   position: absolute;
@@ -101,8 +86,10 @@ export const LineStyled = styled(Line)`
 `;
 
 export const ImageStyled = styled.div`
-  position: relative;
+  position: absolute;
   z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
   ${({ styles }) => styles};
 
   & svg {
@@ -122,21 +109,32 @@ export const AddictiveElementStyled = styled(AddictiveElement)`
   min-height: 40px;
 `;
 
-export const AtomStyled = styled(Atom)`
+export const AtomStyledWrapper = styled.div`
   position: absolute;
   right: 0;
   height: 21.6613vw;
   width: 10.8307vw;
   top: 31.1844vh;
+  overflow: hidden;
 `;
 
-export const SmallCircleStyled = styled(SmallCircle)`
+export const AtomStyled = styled(Atom)`
+  height: 100%;
+`;
+
+export const SmallCircleStyledWrapper = styled.div`
   position: absolute;
   right: 0;
   bottom: 0;
   z-index: 3;
+  overflow: hidden;
   height: 11.4666vw;
   width: 12.5333vw;
+`;
+
+export const SmallCircleStyled = styled(SmallCircle)`
+  width: 14.4vw;
+  height: 14.4vw;
 `;
 
 export const TopLineStyled = styled(TopLine)`

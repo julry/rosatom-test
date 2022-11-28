@@ -7,6 +7,8 @@ import { Card } from './Card';
 
 const CardContainer = styled.div`
   display: flex;
+  height: 100%;
+  width: 100%;
   justify-content: center;
 `;
 
@@ -37,10 +39,10 @@ export const QuestionScreen = () => {
             skipToRandomCards(index, cards);
             updateProgress('resultType', card?.answer?.agree)
         }
-        setTimeout(() => {
+        // setTimeout(() => {
             setPrevCardId(id);
             setCurrentIndex(index => ++index);
-        }, 300);
+        // }, 250);
     };
 
     useEffect(() => {
@@ -57,9 +59,7 @@ export const QuestionScreen = () => {
                 {cards.map((card, index) => (
                     <Card
                         key={card.id}
-                        active={index === currentIndex}
-                        hadSkipped={skippedCards.includes(card.id)}
-                        currentSkipped={[...skippedCards].reverse()[0] === card.id}
+                        inProp={index === currentIndex}
                         isAgreed={answers[card.id]?.isAgreed}
                         index={cards.length - index}
                         curIndex={index + 1}
@@ -68,6 +68,35 @@ export const QuestionScreen = () => {
                         card={card}
                     />
                 ))}
+                {/*<SwitchTransition mode={'in-out'}>*/}
+                {/*    <CSSTransition*/}
+                {/*        key={usedCards[currentIndex]?.id}*/}
+                {/*        nodeRef={usedCards[currentIndex]?.ref}*/}
+                {/*        addEndListener={(done) => {*/}
+                {/*            usedCards[currentIndex]?.ref?.current.addEventListener("transitionend", done, false);*/}
+                {/*        }}*/}
+                {/*        classNames="fade"*/}
+                {/*        unmountOnExit*/}
+                {/*    >*/}
+                {/*        <div ref={usedCards[currentIndex]?.ref} className="button-container">*/}
+                {/*            <Card*/}
+                {/*                key={usedCards[currentIndex]?.id}*/}
+                {/*                // active={index === currentIndex}*/}
+                {/*                // next={currentIndex + 1 === index}*/}
+                {/*                // hadSkipped={skippedCards.includes(card.id)}*/}
+                {/*                // currentSkipped={[...skippedCards].reverse()[0] === card.id}*/}
+                {/*                isAgreed={answers[usedCards[currentIndex]]?.isAgreed}*/}
+                {/*                index={cards.length - currentIndex}*/}
+                {/*                curIndex={currentIndex + 1}*/}
+                {/*                amount={cards.length}*/}
+                {/*                onAnswer={onAnswer}*/}
+                {/*                card={usedCards[currentIndex]}*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </CSSTransition>*/}
+                {/*</SwitchTransition>*/}
+
+                {/*</AnimatePresence>*/}
             </CardContainer>
         </Wrapper>
     );

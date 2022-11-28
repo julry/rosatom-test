@@ -14,11 +14,10 @@ export const shining = (shadowColor) => keyframes`
 
 export const swipe = (isTop) => keyframes`
   0% {
-    top: 0;
-    bottom: 0;
+    transform: translateY(0);
   }
   100% {
-    top: ${isTop ? '-100vh' : '100vh'};
-    bottom: ${isTop ? '100vh' : '0'};
+    transform: translateY(${isTop ? '-100%' : '100%'});
+    position: absolute;
   }
 `;

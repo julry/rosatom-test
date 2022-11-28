@@ -12,6 +12,7 @@ import { RitaCat } from '../components/screens/Questions/svg/RitaCat';
 import { FunCat2 } from '../components/screens/Questions/svg/FunCat2';
 import { colors } from './colors';
 import { FunCat3 } from '../components/screens/Questions/svg/FunCat3';
+import { HighlightedText } from '../components/shared/HighlightedText';
 
 export const CARD_TYPES = {
     math: 'math',
@@ -30,14 +31,21 @@ export const QUESTION_TYPES = {
 export const cards = [
     {
         id: 'startCard-' + CARD_TYPES.code,
-        text: 'Покоряю параллельное программирование. Скоро моему мастерству будут завидовать лучшие повелители кода',
+        text: () => (
+            <p>
+                {'Покоряю параллельное\n'}
+                <HighlightedText isFirstWord={true}>{'программирование. '}</HighlightedText>&nbsp;{'Скоро\n'}
+                {'моему мастерству будут\nзавидовать лучшие повелители '}
+                <HighlightedText>{'кода'}</HighlightedText>
+            </p>),
         type: QUESTION_TYPES.common,
         image: {
             svg: CodeCat,
             addictiveElement: true,
             styles: `
                    width: 53.333vw;
-                   height: 32.5337vh;
+                   height: 57.8667vw;
+                   bottom: 4.1979vh;
             `
         },
         answer: {
@@ -56,7 +64,8 @@ export const cards = [
             svg: CommunicationCat,
             styles: `
                    width: 57.8667vw;
-                   height: 32.9835vh;
+                   height: 58.6666vw;
+                   bottom: 5.2474vh;
             `
         },
         isDepending: true,
@@ -74,7 +83,8 @@ export const cards = [
             addictiveElement: true,
             styles: `
                    width: 72vw;
-                   height: 37.6312vh;
+                   height: 66.9333vw;
+                   bottom: 1.6492vh;
             `
         },
         answer: {
@@ -91,7 +101,8 @@ export const cards = [
             svg: MathCat,
             styles: `
                    width: 69.6vw;
-                   height: 32.2338vh;
+                   height: 57.3333vw;
+                   bottom: 3.5982vh;
             `
         },
         isDepending: true,
@@ -108,8 +119,9 @@ export const cards = [
             svg: FunCat1,
             addictiveElement: true,
             styles: `
-                   width: 67.5333vw;
-                   height: 37.7229vh;
+                   width: 76.5333vw;
+                   height: 76vw;
+                   bottom: 0;
             `
         },
         answer: {
@@ -124,9 +136,11 @@ export const cards = [
         image: {
             svg: CourseCat,
             styles: `
-                   margin-right: -25vw;
                    width: 73.8667vw;
-                   height: 35.6821vh;
+                   height: 63.4666vw;
+                   bottom: 3.7481vh;
+                   left: 18.4vw;
+                   transform: none;
             `
         },
         answer: {
@@ -142,9 +156,9 @@ export const cards = [
             svg: LogosCat,
             addictiveElement: true,
             styles: `
-                   margin-top: -5.997vh;
                    width: 49.0667vw;
-                   height: 37.931vh;
+                   height: 67.4666vw;
+                   bottom: 4.7976vh;
             `
         },
         answer: {
@@ -160,7 +174,8 @@ export const cards = [
             addictiveElement: true,
             styles: `
                    width: 50.9333vw;
-                   height: 41.0795vh;
+                   height: 73.06666vw;
+                   bottom: 1.0495vh;
             `
         },
         type: QUESTION_TYPES.differentiating,
@@ -177,7 +192,8 @@ export const cards = [
             svg: MDCat,
             styles: `
                    width: 59.7333vw;
-                   height: 40.1799vh;
+                   height: 71.4666vw;
+                   bottom: 0;
             `
         },
         answer: {
@@ -193,7 +209,8 @@ export const cards = [
             svg: RitaCat,
             styles: `
                    width: 64.8vw;
-                   height: 31.3343vh;
+                   height: 55.7333vw;
+                   bottom: 6.5967vh;
             `
         },
         answer: {
@@ -210,8 +227,11 @@ export const cards = [
             addictiveElement: true,
             styles: `
                    width: 59.7333vw;
-                   height: 37.2819vh;
-                   margin-right: -20vw;
+                   height: 64.5333vw;
+                   bottom: 0;
+                   left: auto;
+                   right: -1.2666vw;
+                   transform: none;
             `
         },
         answer: {
@@ -228,7 +248,8 @@ export const cards = [
             addictiveElement: true,
             styles: `
                    width: 53.333vw;
-                   height: 32.5337vh;
+                   height: 57.8667vw;
+                   bottom: 4.1979vh;
             `
         },
         answer: {
@@ -245,9 +266,11 @@ export const cards = [
             addictiveElement: true,
             styles: `
                    transform: scale(-1, 1);
-                   margin: -2vh -18vw 0 0;
                    width: 72vw;
-                   height: 37.6312vh;
+                   height: 66.9333vw;
+                   bottom: 1.6492vh;
+                   left: auto; 
+                   right: -0.8vw;
             `
         },
         answer: {
@@ -262,9 +285,11 @@ export const cards = [
         image: {
             svg: FunCat3,
             styles: `
-                   margin-top: 2vh;
                    width: 81.6vw;
-                   height: 34.7826vh;
+                   height: 61.8666vw;
+                   bottom: 1.049vh;
+                   left: -4.8vw;
+                   transform: none;
             `
         },
         answer: {

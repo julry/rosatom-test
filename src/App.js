@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, createRef } from 'react';
 import styled from 'styled-components';
 import { ProgressProvider } from './context/ProgressContext';
 import { useProgressInit } from './hooks/useProgressInit';
 import { preloadImage } from './utils/preloadImage';
 import { Title } from './components/shared/styledTexts';
 import { LogoStyled } from './components/shared/LogoStyled';
-import { Transition } from 'react-transition-group';
+import { Transition, CSSTransition, SwitchTransition } from 'react-transition-group';
+import { screens } from './constants/screens.config';
 
 const Wrapper = styled.div`
   ${({styles}) => styles};
@@ -34,26 +35,23 @@ const MobileViewLandscaped = styled.div`
 const ComponentWrapper = styled.div`
   height: 100%;
   width: 100%;
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   overflow-x: hidden;
   white-space: pre-line;
+  transition: opacity 300ms;
 `;
 
 
 function App() {
     const [height, setHeight] = useState('100vh');
     const progress = useProgressInit();
-    const {screen, updateProgress, hasAllAnswers} = progress;
-    const Component = screen?.component || (() => null);
-    const wrapperRef = useRef(null);
-    const animatedScreens = [3];
-
-    useEffect(() => {
-        updateProgress('wrapperRef', wrapperRef);
-    }, []);
+    const {screen, answers, cards} = progress;
 
     useEffect(() => {
         const preloadImages = screen?.preloadImages;
@@ -76,53 +74,73 @@ function App() {
         };
     }, [screen]);
 
-    const duration = 300;
+    const duration = 600;
 
     const defaultStyle = {
-        transition: `opacity ${duration}ms ease-in-out`,
-        opacity: 0,
+        transition: `transform ${duration}ms ease-in-out`,
     }
 
     const transitionStyles = {
-        entering: { opacity: 1 },
-        entered:  { opacity: 1 },
-        exiting:  { opacity: 0 },
-        exited:  { opacity: 0 },
+        entering: {  transform: 'translateY(0)', top: 0, left: 0 },
+        entered:  {  transform: 'translateY(0)', top: 0, left: 0 },
+        exiting:  { transform: 'translateY(-100%)' },
+        exited:  { transform: 'translateY(-100%)'},
     };
+
+    const getTransitionStyle = (state, id) => {
+        if (Object.keys(answers).length === cards.length && id === 1) {
+            const lastAnswerId = [...Object.keys(answers)].reverse()[0];
+            const isLastAgreed = answers[lastAnswerId]?.isAgreed;
+            const styles =  {
+                ...transitionStyles,
+                exiting:  { transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
+                exited:  { transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
+            };
+            return styles[state]
+        }
+        return transitionStyles[state];
+    }
 
     return (
         <ProgressProvider value={progress}>
             <Wrapper styles={{height}}>
-                <Transition
-                    nodeRef={wrapperRef}
-                    in={true}
-                    appear={true}
-                    timeout={duration}
-                >
-                        {state =>(
-                            <ComponentWrapper
-                                ref={wrapperRef}
-                                style={{
-                                    ...defaultStyle,
-                                    ...transitionStyles[state]
-                                }}
-                            >
-                                <LogoStyled/>
-                                <Component/>
-                            </ComponentWrapper>
-                        )}
-
-                        {/*<LogoWrapper>*/}
-                        {/*    <Logo/>*/}
-                        {/*</LogoWrapper>*/}
-                        {/*<MobileViewLandscaped>*/}
-                        {/*    <InfoScreen direction={'row'}>*/}
-                        {/*        <InfoBackground />*/}
-                        {/*        <OrientationIcon />*/}
-                        {/*        <Title>Пожалуйста, переверни устройство :)</Title>*/}
-                        {/*    </InfoScreen>*/}
-                        {/*</MobileViewLandscaped>*/}
-                </Transition>
+                {screens.map(mappedScreen => {
+                    const Component = mappedScreen.component;
+                    return (
+                        <Transition
+                            key={mappedScreen.id}
+                            in={mappedScreen.id === screen.id}
+                            timeout={duration}
+                            nodeRef={mappedScreen.ref}
+                            mountOnEnter
+                        >
+                            {state => (
+                                    <ComponentWrapper
+                                        ref={mappedScreen.ref}
+                                        style={{
+                                            ...defaultStyle,
+                                            ...getTransitionStyle(state, mappedScreen.id),
+                                            zIndex: 10 - mappedScreen.id
+                                        }}
+                                    >
+                                        <LogoStyled/>
+                                        <Component/>
+                                    </ComponentWrapper>
+                                )
+                            }
+                            {/*<LogoWrapper>*/}
+                            {/*    <Logo/>*/}
+                            {/*</LogoWrapper>*/}
+                            {/*<MobileViewLandscaped>*/}
+                            {/*    <InfoScreen direction={'row'}>*/}
+                            {/*        <InfoBackground />*/}
+                            {/*        <OrientationIcon />*/}
+                            {/*        <Title>Пожалуйста, переверни устройство :)</Title>*/}
+                            {/*    </InfoScreen>*/}
+                            {/*</MobileViewLandscaped>*/}
+                        </Transition>
+                    );
+                })}
                 {/*{isMobile && (*/}
                 {/*)}*/}
                 {/*{!isMobile && (*/}

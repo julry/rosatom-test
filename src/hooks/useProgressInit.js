@@ -50,9 +50,10 @@ export function useProgressInit() {
     const next = () => {
         const nextScreenIndex = currentScreenIndex + 1;
         const canNext = nextScreenIndex <= screens.length - 1;
+        const nextScreen = screens[nextScreenIndex];
 
         if (canNext) {
-            if (progress.wrapperRef) progress.wrapperRef.current.scrollTop = 0;
+            if (nextScreen?.ref?.current) nextScreen.ref.current.scrollTop = 0;
             setCurrentScreenIndex(nextScreenIndex);
         }
     };
@@ -90,9 +91,10 @@ export function useProgressInit() {
     const skipToRandomCards = (curIndex, curCards) => {
         const randomCards = cards.filter(card => card.type === QUESTION_TYPES.random);
         const firstRandomIndex = cards.indexOf(randomCards[0]);
+        const newCards = curCards.slice(0, curIndex).concat(cards.slice(firstRandomIndex));
         setProgress(progress => ({
                 ...progress,
-                cards: curCards.slice(0, curIndex + 1).concat(cards.slice(firstRandomIndex)).slice(0, MAX_CARDS_LENGTH),
+                cards: newCards.slice(0, MAX_CARDS_LENGTH),
             })
         );
     }
