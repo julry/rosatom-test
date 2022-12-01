@@ -14,13 +14,16 @@ import {
 import { Modal } from '../../shared/Modal';
 import { colors } from '../../../constants/colors';
 import { BackgroundWrapper, ContentWrapper } from '../../shared/wrappers';
+import { SWIPE_DELAY } from '../../../constants/durations';
 
 export const StartScreen = () => {
     const {next} = useProgress();
     const [isModal, setIsModal] = useState(false);
 
     const onStart = () => {
-        next();
+        setTimeout(() => {
+            next();
+        }, SWIPE_DELAY);
     };
 
     return (

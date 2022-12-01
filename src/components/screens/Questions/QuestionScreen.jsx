@@ -4,7 +4,7 @@ import { useProgress } from '../../../hooks/useProgress';
 import { QUESTION_TYPES } from '../../../constants/cards.config';
 import { getCardById } from '../../../utils/getCardById';
 import { Card } from './Card';
-import { LogoStyled } from '../../shared/LogoStyled';
+import { SWIPE_DELAY } from '../../../constants/durations';
 
 const CardContainer = styled.div`
   display: flex;
@@ -30,16 +30,17 @@ export const QuestionScreen = () => {
     const onAnswer = ({isAgreed, card, index}) => {
         const {id} = card;
         updateAnswer(id, {isAgreed});
-        if (currentIndex + 1 === cards.length){
-            updateProgress('hasAllAnswers', true);
-            next();
-        }
-        if (card.type === QUESTION_TYPES.differentiating && isAgreed && card?.answer?.agree) {
-            skipToRandomCards(index, cards);
-            updateProgress('resultType', card?.answer?.agree)
-        }
-        setPrevCardId(id);
-        setCurrentIndex(index => ++index);
+        setTimeout(() => {
+            if (currentIndex + 1 === cards.length){
+                next();
+            }
+            if (card.type === QUESTION_TYPES.differentiating && isAgreed && card?.answer?.agree) {
+                skipToRandomCards(index, cards);
+                updateProgress('resultType', card?.answer?.agree)
+            }
+            setPrevCardId(id);
+            setCurrentIndex(index => ++index);
+        }, SWIPE_DELAY);
     };
 
     useEffect(() => {
