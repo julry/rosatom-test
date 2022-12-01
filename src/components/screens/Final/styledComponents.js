@@ -120,7 +120,7 @@ export const TopLineStyled = styled(TopLine)`
 `;
 
 export const BottomLineWrapperStyled = styled.div`
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-shrink: 0;
   bottom: ${({ bottom }) => bottom};
