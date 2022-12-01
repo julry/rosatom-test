@@ -122,6 +122,7 @@ export const TopLineStyled = styled(TopLine)`
 export const BottomLineWrapperStyled = styled.div`
   position: absolute;
   display: flex;
+  flex-shrink: 0;
   bottom: ${({ bottom }) => bottom};
   left: 0;
   width: 100%;
@@ -133,6 +134,7 @@ export const BottomLineWrapperStyled = styled.div`
 
 export const BottomLineStyled = styled(BottomLine)`
   width: 100%;
+  flex-shrink: 0;
   @media screen and (min-width: 700px) {
     display: none
   }
