@@ -68,17 +68,17 @@ export const Final = () => {
                     </MiniLabelWrapper>
                     <MiniTitle> Чем будешь заниматься?</MiniTitle>
                     <Description>{result.description}</Description>
-                    <BottomLineWrapperStyled  bottom={getBottomLinePosition}>
-                        <BottomLineStyled/>
-                        <ButtonStyled>я в деле!</ButtonStyled>
-                    </BottomLineWrapperStyled>
-                    <SmallCircleStyled isFun={true}/>
                     {result.image && (
                         <ImageStyled styles={result.image.styles}>
                             {result.image.svg()}
                         </ImageStyled>
                     )}
                 </Content>
+                <BottomLineWrapperStyled  bottom={getBottomLinePosition}>
+                    <BottomLineStyled/>
+                    <ButtonStyled>я в деле!</ButtonStyled>
+                </BottomLineWrapperStyled>
+                <SmallCircleStyled isFun={true}/>
             </ContentWrapperStyled>
         </Wrapper>
     );
