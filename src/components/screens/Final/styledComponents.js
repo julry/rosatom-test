@@ -50,7 +50,7 @@ export const Title = styled.h1`
 export const MiniLabelWrapper = styled(FlexWrapper)`
   margin: 2.2489% 0;
   @media screen and (min-height: 700px) {
-    margin: 2em 0;
+    margin: 3.2% 0;
   }
 `;
 
@@ -95,7 +95,7 @@ export const ButtonStyled = styled(Button)`
   font-size: 20px;
   border-radius: 27px;
   
-  @media screen and (min-height: 700px){
+  @media screen and (min-width: 700px){
     top: auto;
     bottom: 28.4vh;
   }
