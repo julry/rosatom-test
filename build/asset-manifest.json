@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.837c9359.css",
+    "main.js": "/static/js/main.d41ab51c.js",
+    "static/media/Rosatom-Light.ttf": "/static/media/Rosatom-Light.29b0a57f02b2112f2cd5.ttf",
+    "static/media/Rosatom-Regular.ttf": "/static/media/Rosatom-Regular.05ccb6ce475bc89de1e7.ttf",
+    "static/media/Rosatom-Bold.ttf": "/static/media/Rosatom-Bold.f9d1a4ec532f17bb612f.ttf",
+    "index.html": "/index.html",
+    "main.837c9359.css.map": "/static/css/main.837c9359.css.map",
+    "main.d41ab51c.js.map": "/static/js/main.d41ab51c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.837c9359.css",
+    "static/js/main.d41ab51c.js"
+  ]
+}
