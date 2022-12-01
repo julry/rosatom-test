@@ -67,7 +67,7 @@ export const Final = () => {
                         </BluePlateWrapper>}
                     </MiniLabelWrapper>
                     <MiniTitle> Чем будешь заниматься?</MiniTitle>
-                    <DescriptionStyled>{result.description}</Description>
+                    <DescriptionStyled>{result.description}</DescriptionStyled>
                     {result.image && (
                         <ImageStyled styles={result.image.styles}>
                             {result.image.svg()}
