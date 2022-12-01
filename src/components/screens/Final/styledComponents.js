@@ -125,7 +125,7 @@ export const BottomLineWrapperStyled = styled.div`
   flex-shrink: 0;
   bottom: ${({ bottom }) => bottom};
   left: 0;
-  width: 100%;
+  width: 100vw;
   
   @media screen and (min-width: 700px) {
     bottom: 0;
