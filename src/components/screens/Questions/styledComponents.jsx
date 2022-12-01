@@ -21,13 +21,17 @@ export const StyledCard = styled.div`
 
 export const StyledContentCard = styled(ContentWrapper)`
   display: grid;
-  grid-template-rows: 1.15em minmax(7.6em, 25.5vh) minmax(10.4948vh, 70px) 1fr;
+  grid-template-rows: 1.15em minmax(7.6em, 25.5%) minmax(10.4948%, 70px) 1fr;
   grid-row-gap: 1.73em;
 `;
 
 export const StyledAmount = styled.span`
   font-size: 20px;
-  color: ${({isAddLine}) => isAddLine ? 'white' : colors.darkBlue}
+  color: ${({isAddLine}) => isAddLine ? 'white' : colors.darkBlue};
+  
+  @media screen and (min-width: 700px){
+    font-size: 33px;   
+  }
 `;
 
 export const StyledRemainingCards = styled.span`
@@ -42,11 +46,27 @@ export const TextWrapper = styled.div`
   font-size: 23px;
   line-height: 33px;
   letter-spacing: -0.01em;
+  
+  @media screen and (max-height: 650px){
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  @media screen and (max-width: 330px){
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  @media screen and (min-width: 700px) {
+    font-size: 35px;
+    line-height: 45px;
+  }
 `;
 
 export const ButtonsWrapper = styled(FlexWrapper)`
   justify-content: space-between;
   padding: 0 7.2vw;
+  z-index: 200;
 `;
 
 export const AnswerButton = styled(Button)`
@@ -55,7 +75,8 @@ export const AnswerButton = styled(Button)`
   max-width: 90px;
   max-height: 90px;
   border-radius: 50%;
-  
+  transform: ${({clicked}) => clicked ? 'scale(0.7)' : 'none' };
+  ${({clicked}) => clicked && 'animation: none'};
   & svg {
     width: 8.0453vh;
     height: 7.784vh;
@@ -66,7 +87,7 @@ export const AnswerButton = styled(Button)`
 
 export const NoBtn = styled(AnswerButton)`
   background: ${colors.blue};
-  box-shadow: 0 0 10px #B6CE38;
+  box-shadow: ${({clicked}) => clicked ? '' : ' 0 0 10px #B6CE38' };
   & svg {
     margin-top: 0.27vw;
   }
@@ -74,7 +95,7 @@ export const NoBtn = styled(AnswerButton)`
 
 export const YesBtn = styled(AnswerButton)`
   background: ${colors.green};
-  box-shadow: 0 0 10px #003274;
+  box-shadow: ${({clicked}) => clicked ? '' : ' 0 0 10px #003274' };
 `;
 
 
@@ -91,6 +112,7 @@ export const ImageStyled = styled.div`
   left: 50%;
   transform: translateX(-50%);
   ${({ styles }) => styles};
+  max-height: 33vh;
 
   & svg {
     width: 100%;
@@ -102,11 +124,22 @@ export const AddictiveElementStyled = styled(AddictiveElement)`
   position: absolute;
   z-index: 1;
   left: 0;
-  bottom: 23.838vh;
+  bottom: 23.838%;
   width: 24vw;
   height: 24vw;
   min-width: 40px;
   min-height: 40px;
+  max-height: 14vh;
+
+
+  @media screen and (max-height: 600px) {
+    width: 19vw;
+    height: 16%;
+  }
+
+  @media screen and (min-width: 700px) {
+    left: -20%;
+  }
 `;
 
 export const AtomStyledWrapper = styled.div`
@@ -114,8 +147,9 @@ export const AtomStyledWrapper = styled.div`
   right: 0;
   height: 21.6613vw;
   width: 10.8307vw;
-  top: 31.1844vh;
+  top: 31.1844%;
   overflow: hidden;
+  z-index: 3;
 `;
 
 export const AtomStyled = styled(Atom)`
@@ -142,5 +176,5 @@ export const TopLineStyled = styled(TopLine)`
   top: 0;
   left: 0;
   width: 50.1333vw;
-  height: 16.7916vh;
+  height: 16.7916%;
 `;

@@ -24,6 +24,10 @@ export const Wrapper = styled.div`
 export const StyledTitle = styled(Title)`
   font-size: 35px;
   text-transform: uppercase;
+  
+  @media screen and (max-width: 360px){
+    font-size: 25px;
+  }
 `;
 
 export const DescrWrapper = styled(FlexWrapper)`
@@ -53,14 +57,10 @@ export const InfoWrapper = styled.span`
 
 export const InfoSignWrapper = styled.span`
   position: absolute;
-  top: -0.5em;
-  transform: translateX(-0.25em);
-  left: 0;
-  right: 0;
-  min-height: 1em;
-  min-width: 1em;
-  height: 100%;
-  width: 100%;
+  top: -0.25em;
+  left: -0.25em;
+  height: 1em;
+  width: 1em;
 `;
 
 export const InfoSignStyled = styled(InfoIcon)`
@@ -70,6 +70,10 @@ export const InfoSignStyled = styled(InfoIcon)`
 
 export const ModalText = styled(RegularText)`
   font-size: 14px;
+  
+  @media screen and (max-width: 330px) {
+    font-size: 10px;
+  }
 `;
 
 export const GreenLineStyled = styled(GreenLine)`
@@ -97,5 +101,5 @@ export const BottomBlueLineStyled = styled(BottomBlueLine)`
 export const StyledCat = styled(StartCat)`
   margin: 4.1979vh 0 0 8.2666vw;
   width: 67.4666vw;
-  height: 33.7333vh;
+  height: 33.7333%;
 `;

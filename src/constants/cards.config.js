@@ -34,10 +34,11 @@ export const cards = [
         text: () => (
             <p>
                 {'Покоряю параллельное\n'}
-                <HighlightedText isFirstWord={true}>{'программирование. '}</HighlightedText>&nbsp;{'Скоро\n'}
-                {'моему мастерству будут\nзавидовать лучшие повелители '}
+                <HighlightedText isFirstWord={true}>{'программирование.'}</HighlightedText>&nbsp;{'Скоро\n'}
+                {'моему мастерству будут\nзавидовать лучшие\nповелители '}&nbsp;
                 <HighlightedText>{'кода'}</HighlightedText>
-            </p>),
+            </p>
+        ),
         type: QUESTION_TYPES.common,
         image: {
             svg: CodeCat,
@@ -45,7 +46,7 @@ export const cards = [
             styles: `
                    width: 53.333vw;
                    height: 57.8667vw;
-                   bottom: 4.1979vh;
+                   bottom: 4.1979%;
             `
         },
         answer: {
@@ -58,14 +59,19 @@ export const cards = [
     },
     {
         id: 'startCard-' + CARD_TYPES.communication,
-        text: 'Error404? Спешу на помощь! Научу дружить с компьютером даже бабушку',
+        text: () => (
+            <p>
+                <HighlightedText isFirstWord={true}>{'Error404?'}&nbsp;</HighlightedText>
+                {'\nСпешу на помощь! Научу дружить с'}&nbsp;<HighlightedText>{' компьютером'}</HighlightedText>&nbsp;{' даже бабушку'}
+            </p>
+        ),
         type: QUESTION_TYPES.common,
         image: {
             svg: CommunicationCat,
             styles: `
                    width: 57.8667vw;
                    height: 58.6666vw;
-                   bottom: 5.2474vh;
+                   bottom: 5.2474%;
             `
         },
         isDepending: true,
@@ -76,7 +82,12 @@ export const cards = [
     },
     {
         id: 'startCard-' + CARD_TYPES.design,
-        text: 'Не могу стерпеть, когда кнопка на сайте криво-косо…',
+        text: () => (
+            <p>
+                {'Не могу стерпеть,\nкогда'}&nbsp;<HighlightedText>{'кнопка'}</HighlightedText>&nbsp;{' на сайте\n'}
+                <HighlightedText isFirstWord={true}>криво-косо…</HighlightedText>
+            </p>
+        ),
         type: QUESTION_TYPES.common,
         image: {
             svg: DesignCat,
@@ -84,7 +95,7 @@ export const cards = [
             styles: `
                    width: 72vw;
                    height: 66.9333vw;
-                   bottom: 1.6492vh;
+                   bottom: 1.6492%;
             `
         },
         answer: {
@@ -95,14 +106,18 @@ export const cards = [
     },
     {
         id: 'startCard-' + CARD_TYPES.math,
-        text: 'Пятерка по математике всегда моя!',
+        text: () => (
+            <p>
+                {'Пятерка по '}<HighlightedText>математике</HighlightedText>{'\nвсегда моя!'}
+            </p>
+        ),
         type: QUESTION_TYPES.common,
         image: {
             svg: MathCat,
             styles: `
                    width: 69.6vw;
                    height: 57.3333vw;
-                   bottom: 3.5982vh;
+                   bottom: 3.5982%;
             `
         },
         isDepending: true,
@@ -113,7 +128,12 @@ export const cards = [
     },
     {
         id: 'startCard-' + CARD_TYPES.fun,
-        text: 'Так много всего интересного вокруг, что я даже не знаю, за что мне взяться!',
+        text: () => (
+            <p>
+                {'Так много всего\n'}<HighlightedText isFirstWord={true}>интересного вокруг,</HighlightedText>
+                {'\nчто я даже '}<HighlightedText>не знаю,</HighlightedText>{'\nза что мне взяться!'}
+            </p>
+        ),
         type: QUESTION_TYPES.common,
         image: {
             svg: FunCat1,
@@ -131,14 +151,19 @@ export const cards = [
     },
     {
         id: 'card-' + answerTypes.Course,
-        text: 'Готов поддержать в трудную минуту компьютерного коллапса даже на дистанции в десятки тысяч километров',
+        text: () => (
+            <p>
+                {'Готов '} <HighlightedText>поддержать</HighlightedText>{' в\nтрудную минуту\nкомпьютерного '}
+                <HighlightedText>коллапса</HighlightedText> {'\nдаже на дистанции в\nдесятки тысяч километров'}
+            </p>
+        ),
         type: QUESTION_TYPES.differentiating,
         image: {
             svg: CourseCat,
             styles: `
                    width: 73.8667vw;
                    height: 63.4666vw;
-                   bottom: 3.7481vh;
+                   bottom: 3.7481%;
                    left: 18.4vw;
                    transform: none;
             `
@@ -150,7 +175,12 @@ export const cards = [
     },
     {
         id: 'card-' + answerTypes.Logos,
-        text: 'Не стану изобретать велосипед – спроектирую нечто масштабное и инновационное',
+        text: () => (
+            <p>
+                {'Не стану изобретать\nвелосипед – '}<HighlightedText>спроектирую</HighlightedText>
+                {'\nнечто масштабное\nи '} <HighlightedText>инновационное</HighlightedText>
+            </p>
+        ),
         type: QUESTION_TYPES.differentiating,
         image: {
             svg: LogosCat,
@@ -158,7 +188,7 @@ export const cards = [
             styles: `
                    width: 49.0667vw;
                    height: 67.4666vw;
-                   bottom: 4.7976vh;
+                   bottom: 4.7976%;
             `
         },
         answer: {
@@ -168,14 +198,18 @@ export const cards = [
     },
     {
         id: 'card-' + answerTypes.SmartCity,
-        text: 'Всегда хотелось сделать свой город лучше',
+        text: () => (
+            <p>
+                {'Всегда хотелось сделать\nсвой '} <HighlightedText>город лучше</HighlightedText>
+            </p>
+        ),
         image: {
             svg: CityCat,
             addictiveElement: true,
             styles: `
                    width: 50.9333vw;
                    height: 73.06666vw;
-                   bottom: 1.0495vh;
+                   bottom: 1.0495%;
             `
         },
         type: QUESTION_TYPES.differentiating,
@@ -186,7 +220,12 @@ export const cards = [
     },
     {
         id: 'card-' + answerTypes.MultiD,
-        text: 'Мысленно соединю в единое целое множество частичек в масштабе 100 к 1',
+        text: () => (
+            <p>
+                {'Мысленно соединю\nв '}<HighlightedText>единое</HighlightedText>
+                {' целое\nмножество '}<HighlightedText>частичек</HighlightedText>{'\nв масштабе 100 к 1'}
+            </p>
+        ),
         type: QUESTION_TYPES.differentiating,
         image: {
             svg: MDCat,
@@ -203,14 +242,19 @@ export const cards = [
     },
     {
         id: 'card-' + answerTypes.Rita,
-        text: 'Я за то, чтобы роботы помогали человеку в повседневной жизни',
+        text: () => (
+            <p>
+                {'Я за то, чтобы '}<HighlightedText>роботы</HighlightedText> {'\nпомогали '}
+                <HighlightedText>человеку</HighlightedText>{'\nв повседневной жизни'}
+            </p>
+        ),
         type: QUESTION_TYPES.differentiating,
         image: {
             svg: RitaCat,
             styles: `
                    width: 64.8vw;
                    height: 55.7333vw;
-                   bottom: 6.5967vh;
+                   bottom: 6.5967%;
             `
         },
         answer: {
@@ -220,7 +264,10 @@ export const cards = [
     },
     {
         id: `card-${CARD_TYPES.fun}-1`,
-        text: 'Хочу участвовать\nв технологических\nпроектах мирового\nмасштаба',
+        text: () => (<p>
+            {'Хочу '}<HighlightedText>участвовать</HighlightedText>
+            {'\nв технологических\nпроектах '}<HighlightedText>мирового</HighlightedText>{'\nмасштаба'}
+        </p>),
         type: QUESTION_TYPES.random,
         image: {
             svg: FunCat2,
@@ -241,7 +288,10 @@ export const cards = [
     },
     {
         id: 'card-fun-2',
-        text: 'Хочу создать высокотехнологичные решения для наших потомков',
+        text: () => (<p>
+            {'Хочу создать\n'}<HighlightedText>высокотехнологичные</HighlightedText> {'\nрешения для наших\n'}
+            <HighlightedText>потомков</HighlightedText>
+        </p>),
         type: QUESTION_TYPES.random,
         image: {
             svg: (props) => CodeCat({...props, color: colors.green}),
@@ -249,7 +299,7 @@ export const cards = [
             styles: `
                    width: 53.333vw;
                    height: 57.8667vw;
-                   bottom: 4.1979vh;
+                   bottom: 4.1979%;
             `
         },
         answer: {
@@ -259,7 +309,10 @@ export const cards = [
     },
     {
         id: 'card-fun-3',
-        text: 'Кто, если не я – самый яркий представитель поколения интеллекта?',
+        text: () => (<p>
+            <HighlightedText isFirstWord={true}>Кто, если не я</HighlightedText>{' – самый\nяркий представитель\n'}
+            <HighlightedText isFirstWord={true}>поколения интеллекта?</HighlightedText>
+        </p>),
         type: QUESTION_TYPES.random,
         image: {
             svg: DesignCat,
@@ -268,7 +321,7 @@ export const cards = [
                    transform: scale(-1, 1);
                    width: 72vw;
                    height: 66.9333vw;
-                   bottom: 1.6492vh;
+                   bottom: 1.6492%;
                    left: auto; 
                    right: -0.8vw;
             `
@@ -280,14 +333,18 @@ export const cards = [
     },
     {
         id: 'card-fun-4',
-        text: 'Знаю, что возраст нейтронов измеряется не в секундах',
+        text: () => (
+            <p>
+                {'Знаю, что возраст\n'}<HighlightedText isFirstWord={true}>нейтронов</HighlightedText>{' измеряется\nне в секундах'}
+            </p>
+        ),
         type: QUESTION_TYPES.random,
         image: {
             svg: FunCat3,
             styles: `
                    width: 81.6vw;
                    height: 61.8666vw;
-                   bottom: 1.049vh;
+                   bottom: 1.049%;
                    left: -4.8vw;
                    transform: none;
             `

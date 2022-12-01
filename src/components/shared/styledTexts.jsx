@@ -37,11 +37,13 @@ export const Description = styled(RegularText)`
   font-size: 12px;
 
   @media screen and (max-width: 330px) {
-    font-size: 10px;
+    white-space: initial;
+    font-size: 11px;
   }
 
   @media screen and (min-width: 350px) and (min-height: 700px) {
     font-size: 13px;
+    white-space: unset;
   }
   
   @media screen and (min-width: 768px) {

@@ -1,0 +1,1 @@
+export const SWIPE_DURATION = 600;

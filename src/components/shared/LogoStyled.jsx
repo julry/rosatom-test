@@ -10,6 +10,8 @@ const LogoWrapper = styled.div`
   width: 16.8vw;
   min-width: 64px;
   min-height: 63px;
+  max-width: 120px;
+  max-height: 120px;
 `;
 
 const StyledLogo = styled(Logo)`

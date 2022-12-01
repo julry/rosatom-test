@@ -12,6 +12,7 @@ export const screens = [
     },
     {
         id: 1,
+        hasOwnLogo: true,
         component: QuestionScreen,
         preloadImages: [],
         ref: createRef(),

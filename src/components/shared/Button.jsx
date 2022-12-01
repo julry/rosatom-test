@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../constants/colors';
 import { shining } from './keyframes';
@@ -6,8 +6,8 @@ import { shining } from './keyframes';
 const StyledButton = styled.button`
   outline: none;
   border: none;
-  color: ${colors.green};
-  background: ${colors.blue};
+  color: ${({clicked}) => clicked ? colors.blue : colors.green };
+  background: ${({clicked}) => clicked ? colors.green : colors.blue };
   font-weight: 700;
   text-transform: uppercase;
   box-shadow: 0 0 10px #AFD000;
@@ -15,5 +15,14 @@ const StyledButton = styled.button`
 `;
 
 export const Button = (props) => {
-    return <StyledButton {...props}>{props.children}</StyledButton>
+    const {onClick, ...restProps} = props;
+    const [clicked, setClicked] = useState(false);
+    const onBtnClick = () => {
+        setClicked(true);
+        onClick();
+        setTimeout( () => {
+            setClicked(false)
+        }, 700)
+    }
+    return <StyledButton onClick={onBtnClick} {...restProps} clicked={clicked}>{props.children}</StyledButton>
 };

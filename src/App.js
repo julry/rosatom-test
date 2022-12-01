@@ -1,12 +1,16 @@
-import React, { useEffect, useState, useRef, createRef } from 'react';
+import React, { useEffect, useState} from 'react';
+import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 import { ProgressProvider } from './context/ProgressContext';
 import { useProgressInit } from './hooks/useProgressInit';
 import { preloadImage } from './utils/preloadImage';
 import { Title } from './components/shared/styledTexts';
 import { LogoStyled } from './components/shared/LogoStyled';
-import { Transition, CSSTransition, SwitchTransition } from 'react-transition-group';
+import { Transition } from 'react-transition-group';
 import { screens } from './constants/screens.config';
+import { Orientation } from './components/shared/svg/Orientation';
+import { InfoQr } from './components/shared/InfoQr';
+import { SWIPE_DURATION } from './constants/durations';
 
 const Wrapper = styled.div`
   ${({styles}) => styles};
@@ -18,7 +22,7 @@ const Wrapper = styled.div`
 const MobileViewLandscaped = styled.div`
   display: none;
   
-  @media screen and (orientation: landscape) and (max-height: 640px) and (min-width: 400px) {
+  @media screen and (orientation: landscape) and (min-width: 400px) {
     display: block;
     background-color: white;
     position: absolute;
@@ -30,6 +34,24 @@ const MobileViewLandscaped = styled.div`
     width: 100%;
     height: 100%;
   }
+`;
+
+const InfoScreen = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: white;
+  position: relative;
+  z-index: 3000;
+  flex-direction: ${({direction}) => direction};
+  justify-content: center;
+  align-items: center;
+`;
+
+const OrientationIcon = styled(Orientation)`
+  width: 15vh;
+  height: 15vh;
+  margin-right: 20px;
 `;
 
 const ComponentWrapper = styled.div`
@@ -74,7 +96,7 @@ function App() {
         };
     }, [screen]);
 
-    const duration = 600;
+    const duration = SWIPE_DURATION;
 
     const defaultStyle = {
         transition: `transform ${duration}ms ease-in-out`,
@@ -87,24 +109,35 @@ function App() {
         exited:  { transform: 'translateY(-100%)'},
     };
 
-    const getTransitionStyle = (state, id) => {
-        if (Object.keys(answers).length === cards.length && id === 1) {
+    const getTransitionStyle = (state, id, mount) => {
+        const dependentScreens = [1]
+        if (Object.keys(answers)?.length === cards?.length && dependentScreens.includes(id)) {
             const lastAnswerId = [...Object.keys(answers)].reverse()[0];
             const isLastAgreed = answers[lastAnswerId]?.isAgreed;
-            const styles =  {
+            const styles = {
                 ...transitionStyles,
                 exiting:  { transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
                 exited:  { transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
             };
             return styles[state]
         }
-        return transitionStyles[state];
+        const styles = {
+            ...transitionStyles,
+            exiting:  { transform: mount ? 'translateY(-100%)' :  'translateY(0)'},
+            exited:  { transform: mount ? 'translateY(-100%)' :  'translateY(0)'},
+        }
+        return styles[state];
     }
 
     return (
         <ProgressProvider value={progress}>
             <Wrapper styles={{height}}>
-                {screens.map(mappedScreen => {
+                {!isMobile && (
+                    <InfoScreen direction={'column'}>
+                        <InfoQr />
+                    </InfoScreen>
+                )}
+                {screens.map((mappedScreen, index) => {
                     const Component = mappedScreen.component;
                     return (
                         <Transition
@@ -112,43 +145,34 @@ function App() {
                             in={mappedScreen.id === screen.id}
                             timeout={duration}
                             nodeRef={mappedScreen.ref}
-                            mountOnEnter
+                            mountOnEnter={true}
                         >
                             {state => (
                                     <ComponentWrapper
                                         ref={mappedScreen.ref}
                                         style={{
                                             ...defaultStyle,
-                                            ...getTransitionStyle(state, mappedScreen.id),
+                                            ...getTransitionStyle(state, mappedScreen.id, index < screens.indexOf(screen)),
                                             zIndex: 10 - mappedScreen.id
                                         }}
                                     >
-                                        <LogoStyled/>
+                                        {!screen.hasOwnLogo && <LogoStyled/>}
                                         <Component/>
                                     </ComponentWrapper>
                                 )
                             }
-                            {/*<LogoWrapper>*/}
-                            {/*    <Logo/>*/}
-                            {/*</LogoWrapper>*/}
-                            {/*<MobileViewLandscaped>*/}
-                            {/*    <InfoScreen direction={'row'}>*/}
-                            {/*        <InfoBackground />*/}
-                            {/*        <OrientationIcon />*/}
-                            {/*        <Title>Пожалуйста, переверни устройство :)</Title>*/}
-                            {/*    </InfoScreen>*/}
-                            {/*</MobileViewLandscaped>*/}
                         </Transition>
                     );
                 })}
-                {/*{isMobile && (*/}
-                {/*)}*/}
-                {/*{!isMobile && (*/}
-                {/*    <InfoScreen direction={'column'}>*/}
-                {/*        <InfoBackground/>*/}
-                {/*        <InfoQr />*/}
-                {/*    </InfoScreen>*/}
-                {/*)}*/}
+                {isMobile && (
+                    <MobileViewLandscaped>
+                        <InfoScreen direction={'row'}>
+                            <LogoStyled />
+                            <OrientationIcon />
+                            <Title>Пожалуйста, переверни устройство :)</Title>
+                        </InfoScreen>
+                    </MobileViewLandscaped>
+                )}
             </Wrapper>
         </ProgressProvider>
     );

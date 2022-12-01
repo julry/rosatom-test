@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import QRCodeStyling from 'qr-code-styling';
-import { phoneImg, qrLogo } from '../../constants/images';
+// import { phoneImg, qrLogo } from '../../constants/images';
 import { colors } from '../../constants/colors';
-import { BoldText, MediumText } from './styledTexts';
+import { BoldText, RegularText, } from './styledTexts';
 import { getLinkWithoutParams } from '../../utils/getLinkWithoutParams';
 
 const FlexWrapper = styled.div`
@@ -14,7 +14,7 @@ const Wrapper = styled(FlexWrapper)`
   position: relative;
   background: white;
   justify-content: space-between;
-  border: 4px solid ${colors.orange};
+  //border: 4px solid ${colors.orange};
   border-radius: 30px;
   min-width: 68.75vw;
 `;
@@ -29,7 +29,7 @@ const Title = styled(BoldText)`
   font-size: 42px;
 `;
 
-const Description = styled(MediumText)`
+const Description = styled(RegularText)`
   font-size: 16px;
   margin-top: 15px;
 `;
@@ -61,6 +61,44 @@ const Image = styled.img`
   object-fit: contain;
 `;
 
+const CopyBtn = styled.span`
+  color: blue;
+  cursor: pointer;
+`
+
+const onLinkCopy = () => {
+    const text = window.location.href?.split('?')[0];
+    if (window.clipboardData && window.clipboardData.setData) {
+        return window.clipboardData.setData('Text', text);
+    } else if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+    } else if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
+        const isOS = () => navigator.userAgent.match(/ipad|iphone/i);
+        const textarea = document.createElement('textarea');
+        textarea.textContent = text;
+        textarea.style.position = 'fixed';
+        textarea.disabled = true;
+        document.body.appendChild(textarea);
+        if (isOS()) {
+            const range = document.createRange();
+            range.selectNodeContents(textarea);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textarea.setSelectionRange(0, 999999);
+        } else {
+            textarea.select();
+        }
+        try {
+            return document.execCommand('copy');
+        } catch (ex) {
+            console.warn('Copy to clipboard failed.', ex);
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+}
+
 export const InfoQr = () => {
     const ref = useRef();
 
@@ -68,18 +106,18 @@ export const InfoQr = () => {
         const qrCode = new QRCodeStyling({
             width: 200,
             height: 200,
-            image: qrLogo,
+            // image: qrLogo,
             dotsOptions: {
-                color: colors.purple,
+                // color: colors.purple,
                 type: 'dots'
             },
             cornersSquareOptions: {
                 type: 'square',
-                color: colors.purple
+                // color: colors.purple
             },
             cornersDotOptions: {
                 type: 'square',
-                color: colors.orange
+                // color: colors.orange
             },
             imageOptions: {
                 margin: 5,
@@ -93,25 +131,22 @@ export const InfoQr = () => {
     return (
         <Wrapper>
             <ContentWrapper>
-                <Title>Привет!</Title>
+                {/*<Title>Привет!</Title>*/}
+                {/*<Description>*/}
+                {/*    До карьеры мечты осталось всего несколько свайпов!{'\n'}*/}
+                {/*    Открывай игру на телефоне, отвечай на вопросы{'\n'}и находи мэтч с одной из команд Ростелекома.*/}
+                {/*    {'\n'}*/}
+                {/*</Description>*/}
                 <Description>
-                    До карьеры мечты осталось всего несколько свайпов!{'\n'}
-                    Открывай игру на телефоне, отвечай на вопросы{'\n'}и находи мэтч с одной из команд Ростелекома.
-                    {'\n'}
-                </Description>
-                <Description>
-                    <b>Сканируй QR-код ниже или копируй себе ссылку</b>
-                </Description>
-                <Description>
-                    {getLinkWithoutParams(window.location.href)}
+                    <b>Сканируй QR-код ниже или копируй себе <CopyBtn onClick={onLinkCopy}>ссылку</CopyBtn></b>
                 </Description>
                 <QrWrapper>
                     <div ref={ref} />
-                    <TextBold>До встречи на карьерных{'\n'}вершинах!</TextBold>
+                    {/*<TextBold>До встречи на карьерных{'\n'}вершинах!</TextBold>*/}
                 </QrWrapper>
             </ContentWrapper>
             <ImageWrapper>
-                <Image src={phoneImg} alt={''} />
+                {/*<Image src={phoneImg} alt={''} />*/}
             </ImageWrapper>
         </Wrapper>
     );

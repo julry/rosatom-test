@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 50;
+  z-index: 1000;
 `;
 
 const BackgroundModal = styled(Wrapper)`
@@ -50,7 +50,7 @@ const CloseIconStyled = styled(CloseIcon)`
 
 export const Modal = (props) => (
     <Wrapper>
-        <BackgroundModal/>
+        <BackgroundModal onClick={props.onClose}/>
         <ContentWrapper>
             <CloseIconStyled onClick={props.onClose}/>
             {props.children}

@@ -11,13 +11,3 @@ export const shining = (shadowColor) => keyframes`
     box-shadow: 0 0 10px ${shadowColor};
   }
 `;
-
-export const swipe = (isTop) => keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(${isTop ? '-100%' : '100%'});
-    position: absolute;
-  }
-`;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import { DisagreeIcon } from '../../shared/svg/DisagreeIcon';
 import { AgreeIcon } from '../../shared/svg/AgreeIcon';
@@ -13,14 +13,21 @@ import {
     TextWrapper, TopLineStyled, YesBtn
 } from './styledComponents';
 import { CARD_TYPES, QUESTION_TYPES } from '../../../constants/cards.config';
+import { LogoStyled } from '../../shared/LogoStyled';
+import { SWIPE_DURATION } from '../../../constants/durations';
 
 export const Card = (props) => {
     const {inProp, isAgreed, index, curIndex, amount, card, onAnswer} = props;
+    const [clicked, setClicked] = useState({});
     const isFun = card.id?.includes(CARD_TYPES.fun);
     const isAddLine = card.type === QUESTION_TYPES.random;
     const nodeRef = useRef(null);
 
-    const duration = 600;
+    const onClick = (isAgreed) => {
+        setClicked({isAgreed});
+        onAnswer({isAgreed, card, index: curIndex})
+    }
+    const duration = SWIPE_DURATION;
 
     const defaultStyle = {
         transition: `transform ${duration}ms ease-in-out`,
@@ -61,13 +68,15 @@ export const Card = (props) => {
                         </TextWrapper>
                         <ButtonsWrapper>
                             <NoBtn
-                                onClick={() => onAnswer({isAgreed: false, card, index: curIndex})}
+                                clicked={clicked.isAgreed === false}
+                                onClick={() => onClick(false)}
                                 shadowColor={'#B6CE38'}
                             >
                                 <DisagreeIcon/>
                             </NoBtn>
                             <YesBtn
-                                onClick={() => onAnswer({isAgreed: true, card, index: curIndex})}
+                                clicked={clicked.isAgreed}
+                                onClick={() => onClick(true)}
                                 shadowColor={'#003274'}
                             >
                                 <AgreeIcon />
@@ -81,6 +90,7 @@ export const Card = (props) => {
                         </ImageStyled>
                     </StyledContentCard>
                     <BackgroundWrapper>
+                        <LogoStyled/>
                         {isAddLine && <TopLineStyled />}
                         <AtomStyledWrapper>
                             <AtomStyled />
