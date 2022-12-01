@@ -74,7 +74,7 @@ export const Final = () => {
                         </ImageStyled>
                     )}
                 </Content>
-                <BottomLineWrapperStyled  bottom={getBottomLinePosition}>
+                <BottomLineWrapperStyled bottom={getBottomLinePosition}>
                     <BottomLineStyled/>
                     <ButtonStyled>я в деле!</ButtonStyled>
                 </BottomLineWrapperStyled>
@@ -83,5 +83,3 @@ export const Final = () => {
         </Wrapper>
     );
 };
-
-//if 25% height / width < 0.45, to sdvigat' ya

@@ -125,6 +125,7 @@ export const BottomLineWrapperStyled = styled.div`
   flex-shrink: 0;
   bottom: ${({ bottom }) => bottom};
   left: 0;
+  right: 0;
   width: 100vw;
   
   @media screen and (min-width: 700px) {
@@ -168,6 +169,8 @@ export const SmallCircleStyled = styled(SmallCircle)`
 export const ContentWrapperStyled = styled(ContentWrapper)`
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 1;
   
   @media screen and (min-width: 700px){
     overflow-x: visible;
