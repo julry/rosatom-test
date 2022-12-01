@@ -120,14 +120,15 @@ export const TopLineStyled = styled(TopLine)`
 `;
 
 export const BottomLineWrapperStyled = styled.div`
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-shrink: 0;
+  flex-grow: 1;
   bottom: ${({ bottom }) => bottom};
   left: 0;
   right: 0;
   width: 100vw;
-  
+
   @media screen and (min-width: 700px) {
     bottom: 0;
   }
@@ -136,6 +137,7 @@ export const BottomLineWrapperStyled = styled.div`
 export const BottomLineStyled = styled(BottomLine)`
   width: 100%;
   flex-shrink: 0;
+  flex-grow: 1;
   @media screen and (min-width: 700px) {
     display: none
   }
@@ -227,4 +229,8 @@ export const SmallCircleStyledBg = styled(SmallCircleStyled)`
   @media screen and (min-width: 700px) {
     display: block;
   }
+`;
+
+export const DescriptionStyled = styled(Description)`
+  max-width: 350px;
 `;

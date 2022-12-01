@@ -22,7 +22,7 @@ import {
     ContentWrapperStyled,
     ImageStyled,
     SubTitle,
-    TopLineWrapper, TopLineStyledBg, BottomLineWrapperStyled, BottomLineStyledBg, SmallCircleStyledBg
+    TopLineWrapper, TopLineStyledBg, BottomLineWrapperStyled, BottomLineStyledBg, SmallCircleStyledBg, DescriptionStyled
 } from './styledComponents';
 
 export const Final = () => {
@@ -67,7 +67,7 @@ export const Final = () => {
                         </BluePlateWrapper>}
                     </MiniLabelWrapper>
                     <MiniTitle> Чем будешь заниматься?</MiniTitle>
-                    <Description>{result.description}</Description>
+                    <DescriptionStyled>{result.description}</Description>
                     {result.image && (
                         <ImageStyled styles={result.image.styles}>
                             {result.image.svg()}
