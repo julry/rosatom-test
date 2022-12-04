@@ -19,7 +19,7 @@ const DEPEND_COMMON_CARD_ID = 'startCard-' + CARD_TYPES.code;
 const DEPEND_DIFFERENTIATING_CARD_ID = 'startCard-' + CARD_TYPES.math;
 const INITIAL_FORK = forks[0];
 const INITIAL_ANSWERS = {};
-const INITIAL_RESULT_TYPE = answerTypes.MultiD;
+const INITIAL_RESULT_TYPE = answerTypes.Logos;
 const MAX_CARDS_LENGTH = 10;
 
 const INITIAL_PROGRESS = {

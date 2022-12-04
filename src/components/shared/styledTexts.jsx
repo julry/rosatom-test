@@ -40,11 +40,6 @@ export const Description = styled(RegularText)`
     white-space: initial;
     font-size: 11px;
   }
-
-  @media screen and (min-width: 350px) and (min-height: 700px) {
-    font-size: 13px;
-    white-space: unset;
-  }
   
   @media screen and (min-width: 768px) {
     font-size: 15px;

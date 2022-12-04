@@ -19,8 +19,8 @@ const StyledLogo = styled(Logo)`
   height: 100%;
 `;
 
-export const LogoStyled = () => (
-    <LogoWrapper>
+export const LogoStyled = (props) => (
+    <LogoWrapper {...props}>
         <StyledLogo />
     </LogoWrapper>
 )
