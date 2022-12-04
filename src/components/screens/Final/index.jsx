@@ -45,7 +45,7 @@ export const Final = () => {
                 <AtomStyledWrapper>
                     <AtomStyled />
                 </AtomStyledWrapper>
-                <BottomLineStyledBg/>
+                <BottomLineStyledBg bottom={getBottomLinePosition()}/>
                 <SmallCircleStyledBg isFun={true}/>
             </BackgroundWrapper>
             <ContentWrapperStyled>
@@ -74,10 +74,7 @@ export const Final = () => {
                         </ImageStyled>
                     )}
                 </Content>
-                <BottomLineWrapperStyled bottom={getBottomLinePosition}>
-                    <BottomLineStyled/>
-                    <ButtonStyled>я в деле!</ButtonStyled>
-                </BottomLineWrapperStyled>
+                <ButtonStyled>я в деле!</ButtonStyled>
                 <SmallCircleStyled isFun={true}/>
             </ContentWrapperStyled>
         </Wrapper>

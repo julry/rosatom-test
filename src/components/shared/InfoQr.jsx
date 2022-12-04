@@ -1,70 +1,101 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import QRCodeStyling from 'qr-code-styling';
-// import { phoneImg, qrLogo } from '../../constants/images';
 import { colors } from '../../constants/colors';
 import { BoldText, RegularText, } from './styledTexts';
 import { getLinkWithoutParams } from '../../utils/getLinkWithoutParams';
+import { BackgroundWrapper, ContentWrapper } from './wrappers';
+import { DesktopGreenLine } from './svg/DesktopGreenLine';
+import { desktopCat } from '../../constants/images';
+import { Atom } from './svg/Atom';
+import { LogoStyled } from './LogoStyled';
 
 const FlexWrapper = styled.div`
   display: flex;
 `;
 
-const Wrapper = styled(FlexWrapper)`
+const ContentWrapperStyled = styled(ContentWrapper)`
+  margin: 0;
+  max-width: none;
+  white-space: pre-line;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Wrapper = styled.div`
   position: relative;
   background: white;
   justify-content: space-between;
-  //border: 4px solid ${colors.orange};
-  border-radius: 30px;
-  min-width: 68.75vw;
+  padding: 21.9444vh 6.25vw 0;
+  width: 100%;
+  height: 100%;
 `;
 
-const ContentWrapper = styled.div`
-  padding: 50px 10px 50px 50px;
-  max-width: 475px;
-  white-space: pre-line;
-`;
 
 const Title = styled(BoldText)`
-  font-size: 42px;
+  font-size: 59px;
+  text-transform: uppercase;
 `;
 
-const Description = styled(RegularText)`
-  font-size: 16px;
-  margin-top: 15px;
+const TextWrapper = styled(FlexWrapper)`
+  font-size: 20px;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 25px;
+  flex-direction: column;
+  height: 220px;
+  padding: 5px 0;
 `;
 
 const TextBold = styled(BoldText)`
-  font-size: 16px;
+  text-transform: uppercase;
 `;
 
 const QrWrapper = styled(FlexWrapper)`
+  margin-top: auto;
   align-items: center;
-  margin-top: 50px;
-  margin-left: -10px;
-  padding-right: 10px;
   justify-content: space-between;
+  margin-bottom: 9.16667vh;
 `;
 
 const ImageWrapper = styled(FlexWrapper)`
-  width: 30.8594vw;
-  min-width: 54.3vh;
-  padding-right: 1vw;
-  border-bottom-right-radius: 26px;
-  overflow: hidden;
-  justify-content: flex-end;
-  align-items: flex-end;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 80vh;
+  max-width: calc(93.75vw - 590px);
 `;
 
 const Image = styled.img`
-  width: 100%;
+  height: 100%;
   object-fit: contain;
 `;
 
 const CopyBtn = styled.span`
-  color: blue;
+  color: ${colors.darkBlue};
   cursor: pointer;
-`
+  text-decoration: underline;
+`;
+
+const DesktopGreenLineStyled = styled(DesktopGreenLine)`
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  min-height: 720px;
+`;
+
+const AtomStyled = styled(Atom)`
+  position: absolute;
+  top: 5.8333vh;
+  left: 57.4219vw;
+  width: 70px;
+  height: 70px;
+`;
+
+const LogoDesktopStyled = styled(LogoStyled)`
+  top: 5.8333vh;
+`;
 
 const onLinkCopy = () => {
     const text = window.location.href?.split('?')[0];
@@ -103,50 +134,59 @@ export const InfoQr = () => {
     const ref = useRef();
 
     useEffect(() => {
-        const qrCode = new QRCodeStyling({
-            width: 200,
-            height: 200,
-            // image: qrLogo,
-            dotsOptions: {
-                // color: colors.purple,
-                type: 'dots'
-            },
-            cornersSquareOptions: {
-                type: 'square',
-                // color: colors.purple
-            },
-            cornersDotOptions: {
-                type: 'square',
-                // color: colors.orange
-            },
-            imageOptions: {
-                margin: 5,
-                imageSize: 0.5
-            },
-            data: window.location.href
-        });
-        qrCode.append(ref.current);
+        if (!ref?.current?.children.length) {
+            const qrCode = new QRCodeStyling({
+                width: 220,
+                height: 220,
+                dotsOptions: {
+                    color: colors.blue,
+                    type: 'rounded'
+                },
+                cornersSquareOptions: {
+                    type: 'extra-rounded',
+                    color: colors.green
+                },
+                cornersDotOptions: {
+                    type: 'extra-rounded',
+                    color: colors.blue
+                },
+                imageOptions: {
+                    margin: 5,
+                    imageSize: 0.5
+                },
+                data: window.location.href
+            });
+            qrCode.append(ref.current);
+        }
     }, []);
 
     return (
         <Wrapper>
-            <ContentWrapper>
-                {/*<Title>Привет!</Title>*/}
+            <BackgroundWrapper>
+                <DesktopGreenLineStyled />
+                <AtomStyled/>
+                <LogoDesktopStyled />
+            </BackgroundWrapper>
+            <ContentWrapperStyled>
+                <Title>{'Welcome в мир\nAtomic IT-котиков'}</Title>
                 {/*<Description>*/}
                 {/*    До карьеры мечты осталось всего несколько свайпов!{'\n'}*/}
                 {/*    Открывай игру на телефоне, отвечай на вопросы{'\n'}и находи мэтч с одной из команд Ростелекома.*/}
                 {/*    {'\n'}*/}
                 {/*</Description>*/}
-                <Description>
-                    <b>Сканируй QR-код ниже или копируй себе <CopyBtn onClick={onLinkCopy}>ссылку</CopyBtn></b>
-                </Description>
                 <QrWrapper>
                     <div ref={ref} />
-                    {/*<TextBold>До встречи на карьерных{'\n'}вершинах!</TextBold>*/}
+                    <TextWrapper>
+                        <p>{'Готов узнать, какой проект Росатома\nподходит именно тебе? ' +
+                            'Для этого\nнужно открыть наш тест с телефона.\n' +
+                            'А мы тебе в этом поможем!'}
+                        </p>
+                        <TextBold>копируй себе <CopyBtn onClick={onLinkCopy}>ссылку</CopyBtn>{'\n'}или Сканируй QR-код</TextBold>
+                    </TextWrapper>
                 </QrWrapper>
-            </ContentWrapper>
+            </ContentWrapperStyled>
             <ImageWrapper>
-                {/*<Image src={phoneImg} alt={''} />*/}
+                <Image src={desktopCat} alt={''} />
             </ImageWrapper>
         </Wrapper>
     );

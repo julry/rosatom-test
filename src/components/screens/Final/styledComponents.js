@@ -49,8 +49,10 @@ export const Title = styled.h1`
 
 export const MiniLabelWrapper = styled(FlexWrapper)`
   margin: 2.2489% 0;
+  height: 7.7961vh;
   @media screen and (min-height: 700px) {
     margin: 3.2% 0;
+    height: 88px;
   }
 `;
 
@@ -64,13 +66,16 @@ export const MiniLabelContainer = styled.div`
   border-radius: 10px;
   background: ${colors.green};
   margin-right: ${({hasShortLabel}) => hasShortLabel ? '-0.3vw' : 0};
+  
+  @media screen and (min-width: 700px) {
+    justify-content: center;
+  }
 `;
 
 export const BluePlateWrapper = styled.div`
   margin-left: 10px;
   width: 23.46667vw;
-  height: 7.7961vh;
-  flex-grow: 1;
+  height: 100%;
 `;
 
 export const BluePlateStyled = styled(BluePlate)`
@@ -82,10 +87,7 @@ export const MiniTitle = styled(Description)`
 `;
 
 export const ButtonStyled = styled(Button)`
-  position: absolute;
-  top: -3.4vh;
-  right: 5.4333vw;
-  z-index: 10;
+  margin: 3vh 10.9333vw 0 auto;
   width: 39.2vw;
   min-width: 147px;
   height: 7.7961vh;
@@ -94,11 +96,6 @@ export const ButtonStyled = styled(Button)`
   max-height: 60px;
   font-size: 20px;
   border-radius: 27px;
-  
-  @media screen and (min-width: 700px){
-    top: auto;
-    bottom: 28.4vh;
-  }
 `;
 
 export const TopLineWrapper = styled.div`
@@ -114,30 +111,6 @@ export const TopLineWrapper = styled.div`
 export const TopLineStyled = styled(TopLine)`
   width: 100%;
   height: 100%;
-  @media screen and (min-width: 700px) {
-    display: none
-  }
-`;
-
-export const BottomLineWrapperStyled = styled.div`
-  position: absolute;
-  display: flex;
-  flex-shrink: 0;
-  flex-grow: 1;
-  bottom: ${({ bottom }) => bottom};
-  left: 0;
-  right: 0;
-  width: 100vw;
-
-  @media screen and (min-width: 700px) {
-    bottom: 0;
-  }
-`;
-
-export const BottomLineStyled = styled(BottomLine)`
-  width: 100%;
-  flex-shrink: 0;
-  flex-grow: 1;
   @media screen and (min-width: 700px) {
     display: none
   }
@@ -189,9 +162,14 @@ export const ImageStyled = styled.div`
     width: 100%;
     height: 100%;
   }
+  
+  @media screen and (min-width: 400px) and (min-height: 600px) {
+    max-height: calc(76vh - 64px - 20em);
+  }
 `;
 
 export const Content = styled.div`
+  min-height: 15.58em;
   padding: 0 5.5vw;
 `;
 
@@ -207,12 +185,9 @@ export const TopLineStyledBg = styled(TopLine)`
 
 export const BottomLineStyledBg = styled(BottomLine)`
   position: absolute;
-  bottom: 0;
+  bottom: ${({bottom}) => bottom};
   left: 0;
   width: 100%;
-  @media screen and (max-width: 699px) {
-    display: none
-  }
 `;
 
 
@@ -232,5 +207,5 @@ export const SmallCircleStyledBg = styled(SmallCircleStyled)`
 `;
 
 export const DescriptionStyled = styled(Description)`
-  max-width: 350px;
+  min-height: 8.2em;
 `;
