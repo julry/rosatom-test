@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FlexWrapper } from '../../shared/FlexWrapper';
 import { Atom } from '../../shared/svg/Atom';
 import { Button } from '../../shared/Button';
-import { RegularText, Title } from '../../shared/styledTexts';
+import { ColoredText, RegularText, Title } from '../../shared/styledTexts';
 import { InfoIcon } from '../../shared/svg/InfoIcon';
 import { shining } from '../../shared/keyframes';
 import { GreenLine } from './svg/GreenLine';
@@ -70,9 +70,10 @@ export const InfoSignStyled = styled(InfoIcon)`
 
 export const ModalText = styled(RegularText)`
   font-size: 14px;
-  
+  line-height: 17px;
   @media screen and (max-width: 330px) {
     font-size: 10px;
+    line-height: 13px;
   }
 `;
 
@@ -102,4 +103,8 @@ export const StyledCat = styled(StartCat)`
   margin: 4.1979vh 0 0 8.2666vw;
   width: 67.4666vw;
   height: 33.7333%;
+`;
+
+export const ColoredTextStyled = styled(ColoredText)`
+    text-transform: uppercase;
 `;

@@ -28,7 +28,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  width: 64.8vw;
+  width: 66.8vw;
   padding: 5.847vh 6.9333vw 4.6476vh;
   background: white;
 `;

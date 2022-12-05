@@ -9,7 +9,7 @@ const Highlighted = styled.span`
       height: 1.4em;
       z-index: -1;
       border-radius: 0.87em;
-      top: 0.7em;
+      top: calc(0.7em + 1px);
       left: ${({isFirstWord}) => isFirstWord ? '-0.43em' : '-0.18em'};
       position: absolute;
       transform: translateY(-50%);
