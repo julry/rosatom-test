@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import { FlexWrapper } from '../../shared/FlexWrapper';
 import { Atom } from '../../shared/svg/Atom';
 import { Button } from '../../shared/Button';
-import { ColoredText, RegularText, Title } from '../../shared/styledTexts';
+import { BoldText, ColoredText, RegularText } from '../../shared/styledTexts';
 import { InfoIcon } from '../../shared/svg/InfoIcon';
-import { shining } from '../../shared/keyframes';
 import { GreenLine } from './svg/GreenLine';
 import { TopBlueLine } from './svg/TopBlueLine';
 import { BottomBlueLine } from './svg/BottomBlueLine';
@@ -20,12 +19,11 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-
-export const StyledTitle = styled(Title)`
+export const StyledTitle = styled(BoldText)`
   font-size: 35px;
   text-transform: uppercase;
-  
-  @media screen and (max-width: 360px){
+
+  @media screen and (max-width: 360px) {
     font-size: 25px;
   }
 `;
@@ -106,5 +104,5 @@ export const StyledCat = styled(StartCat)`
 `;
 
 export const ColoredTextStyled = styled(ColoredText)`
-    text-transform: uppercase;
+  text-transform: uppercase;
 `;

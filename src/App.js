@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 import { ProgressProvider } from './context/ProgressContext';
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 const MobileViewLandscaped = styled.div`
   display: none;
-  
+
   @media screen and (orientation: landscape) and (min-width: 400px) {
     display: block;
     background-color: white;
@@ -100,41 +100,41 @@ function App() {
 
     const defaultStyle = {
         transition: `transform ${duration}ms ease-in-out`,
-    }
+    };
 
     const transitionStyles = {
-        entering: {  transform: 'translateY(0)', top: 0, left: 0 },
-        entered:  {  transform: 'translateY(0)', top: 0, left: 0 },
-        exiting:  { transform: 'translateY(-100%)' },
-        exited:  { transform: 'translateY(-100%)'},
+        entering: {transform: 'translateY(0)', top: 0, left: 0},
+        entered: {transform: 'translateY(0)', top: 0, left: 0},
+        exiting: {transform: 'translateY(-100%)'},
+        exited: {transform: 'translateY(-100%)'},
     };
 
     const getTransitionStyle = (state, id, mount) => {
-        const dependentScreens = [1]
+        const dependentScreens = [1];
         if (Object.keys(answers)?.length === cards?.length && dependentScreens.includes(id)) {
             const lastAnswerId = [...Object.keys(answers)].reverse()[0];
             const isLastAgreed = answers[lastAnswerId]?.isAgreed;
             const styles = {
                 ...transitionStyles,
-                exiting:  { transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
-                exited:  { transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
+                exiting: {transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
+                exited: {transform: isLastAgreed ? 'translateY(-100%)' : 'translateY(100%)'},
             };
-            return styles[state]
+            return styles[state];
         }
         const styles = {
             ...transitionStyles,
-            exiting:  { transform: mount ? 'translateY(-100%)' :  'translateY(0)'},
-            exited:  { transform: mount ? 'translateY(-100%)' :  'translateY(0)'},
-        }
+            exiting: {transform: mount ? 'translateY(-100%)' : 'translateY(0)'},
+            exited: {transform: mount ? 'translateY(-100%)' : 'translateY(0)'},
+        };
         return styles[state];
-    }
+    };
 
     return (
         <ProgressProvider value={progress}>
             <Wrapper styles={{height}}>
                 {!isMobile && (
                     <InfoScreen direction={'column'}>
-                        <InfoQr />
+                        <InfoQr/>
                     </InfoScreen>
                 )}
                 {screens.map((mappedScreen, index) => {
@@ -148,18 +148,18 @@ function App() {
                             mountOnEnter={true}
                         >
                             {state => (
-                                    <ComponentWrapper
-                                        ref={mappedScreen.ref}
-                                        style={{
-                                            ...defaultStyle,
-                                            ...getTransitionStyle(state, mappedScreen.id, index < screens.indexOf(screen)),
-                                            zIndex: 10 - mappedScreen.id
-                                        }}
-                                    >
-                                        {!screen.hasOwnLogo && <LogoStyled/>}
-                                        <Component/>
-                                    </ComponentWrapper>
-                                )
+                                <ComponentWrapper
+                                    ref={mappedScreen.ref}
+                                    style={{
+                                        ...defaultStyle,
+                                        ...getTransitionStyle(state, mappedScreen.id, index < screens.indexOf(screen)),
+                                        zIndex: 10 - mappedScreen.id
+                                    }}
+                                >
+                                    {!screen.hasOwnLogo && <LogoStyled/>}
+                                    <Component/>
+                                </ComponentWrapper>
+                            )
                             }
                         </Transition>
                     );
@@ -167,8 +167,8 @@ function App() {
                 {isMobile && (
                     <MobileViewLandscaped>
                         <InfoScreen direction={'row'}>
-                            <LogoStyled />
-                            <OrientationIcon />
+                            <LogoStyled/>
+                            <OrientationIcon/>
                             <Title>Пожалуйста, переверни устройство :)</Title>
                         </InfoScreen>
                     </MobileViewLandscaped>
@@ -176,6 +176,6 @@ function App() {
             </Wrapper>
         </ProgressProvider>
     );
-}
+};
 
 export default App;

@@ -1,6 +1,6 @@
 import { answerTypes } from './answersTypes';
 import { LogosFinalCat } from '../components/screens/Final/svg/LogosFinalCat';
-import { SmartCityFinalCat } from './SmartCityFinalCat';
+import { SmartCityFinalCat } from '../components/screens/Final/svg/SmartCityFinalCat';
 import { MDFinalCat } from '../components/screens/Final/svg/MDFinalCat';
 import { CourseFinalCat } from '../components/screens/Final/svg/CourseFinalCat';
 import { RitaFinalCat } from '../components/screens/Final/svg/RitaFinalCat';

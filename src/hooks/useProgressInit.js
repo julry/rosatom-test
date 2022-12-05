@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { cards, CARD_TYPES, QUESTION_TYPES } from '../constants/cards.config';
 import { forks } from '../constants/forks.config';
 import { screens } from '../constants/screens.config';
-import { getCardById } from '../utils/getCardById'
+import { getCardById } from '../utils/getCardById';
 import { answerTypes } from '../constants/answersTypes';
 
 const getCardsByFork = (fork) => {
@@ -77,7 +77,7 @@ export function useProgressInit() {
 
     const updateCommonCards = () => {
         const isAgreed = progress.answers[DEPEND_COMMON_CARD_ID].isAgreed;
-        if (isAgreed){
+        if (isAgreed) {
             const swipedIds = getCardById(DEPEND_COMMON_CARD_ID).cardsDepending || [];
             const swipeResult = swipeCards(swipedIds);
             setProgress(progress => ({
@@ -86,7 +86,7 @@ export function useProgressInit() {
                 })
             );
         }
-    }
+    };
 
     const skipToRandomCards = (curIndex, curCards) => {
         const randomCards = cards.filter(card => card.type === QUESTION_TYPES.random);
@@ -97,18 +97,18 @@ export function useProgressInit() {
                 cards: newCards.slice(0, MAX_CARDS_LENGTH),
             })
         );
-    }
+    };
 
     const updateDifferentiatingCards = () => {
         const answers = {...progress.answers};
 
         const resultPoints = Object.entries(answers).reduce((res, cardAnswer) => {
-            const [ id, answerAgreed ] = cardAnswer;
+            const [id, answerAgreed] = cardAnswer;
             if (!id) return res;
             const card = getCardById(id);
-            const { answer } = card;
+            const {answer} = card;
             const answerTypes = answer[answerAgreed.isAgreed ? 'agree' : 'disagree'];
-            return { ...answerTypes.reduce((result, t) => ({ ...result, [t]: (result[t] || 0) + 1 }), {...res}) };
+            return {...answerTypes.reduce((result, t) => ({...result, [t]: (result[t] || 0) + 1}), {...res})};
         }, {});
 
         const maxPoints = Math.max(...Object.keys(resultPoints).map(key => resultPoints[key]));
@@ -119,7 +119,7 @@ export function useProgressInit() {
             const maxForks = answersPoints
                 .filter(point => max[point[0]] === point[1] && point[1] === maxPoints);
             const resOnlyMaxPoints = answersPoints.filter(point => point[1] === maxPoints);
-            return maxForks.length === Object.keys(max).length  && resOnlyMaxPoints.length === maxForks.length;
+            return maxForks.length === Object.keys(max).length && resOnlyMaxPoints.length === maxForks.length;
         });
         let finalFork = maxPointsFork[0];
         if (!finalFork) return;
@@ -131,7 +131,7 @@ export function useProgressInit() {
                 if (!dependentKeys.length) return true;
                 return resultPoints[dependentKeys[0]] ? resultPoints[dependentKeys[0]] === dependent[dependentKeys[0]]
                     : dependent[dependentKeys[0]] === 0;
-            })[0]
+            })[0];
         }
 
         setProgress(progress => ({
@@ -141,7 +141,7 @@ export function useProgressInit() {
                 resultType: finalFork?.result || INITIAL_RESULT_TYPE
             })
         );
-    }
+    };
 
     const updateAnswer = (name, value) => {
         const answers = {...progress.answers, [name]: value};

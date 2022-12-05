@@ -22,27 +22,28 @@ export const SubTitle = styled.p`
   left: 5.5vw;
   font-size: 15px;
   font-weight: bold;
-  
-  @media screen and (min-width: 450px){
+
+  @media screen and (min-width: 450px) {
     bottom: 8%;
   }
 
-  @media screen and (max-width: 320px){
+  @media screen and (max-width: 320px) {
     font-size: 13px;
   }
-  
-  @media screen and (min-width: 700px){
+
+  @media screen and (min-width: 700px) {
     font-size: 20px;
   }
 `;
 
 export const Title = styled.h1`
   font-size: 32px;
-  @media screen and (max-height: 600px){
+  
+  @media screen and (max-height: 600px) {
     font-size: 28px;
   }
-  
-  @media screen and (max-width: 320px){
+
+  @media screen and (max-width: 320px) {
     font-size: 24px;
   }
 `;
@@ -50,6 +51,7 @@ export const Title = styled.h1`
 export const MiniLabelWrapper = styled(FlexWrapper)`
   margin: 2.2489% 0;
   height: 7.7961vh;
+  
   @media screen and (min-height: 700px) {
     margin: 3.2% 0;
     height: 88px;
@@ -66,7 +68,7 @@ export const MiniLabelContainer = styled.div`
   border-radius: 10px;
   background: ${colors.green};
   margin-right: ${({hasShortLabel}) => hasShortLabel ? '-0.3vw' : 0};
-  
+
   @media screen and (min-width: 700px) {
     justify-content: center;
   }
@@ -81,6 +83,7 @@ export const BluePlateWrapper = styled.div`
 export const BluePlateStyled = styled(BluePlate)`
   height: 100%;
 `;
+
 export const MiniTitle = styled(Description)`
   font-weight: bold;
   margin-bottom: 5px;
@@ -104,10 +107,11 @@ export const TopLineWrapper = styled.div`
   height: 42.666vw;
   max-height: 24vh;
   max-width: 450px;
+  
   @media screen and (max-height: 650px) {
     height: 35vw;
-  }
-`
+  };
+`;
 export const TopLineStyled = styled(TopLine)`
   width: 100%;
   height: 100%;
@@ -136,6 +140,7 @@ export const SmallCircleStyled = styled(SmallCircle)`
   z-index: 3;
   height: 14.4vw;
   width: 14.4vw;
+  
   @media screen and (min-width: 700px) {
     display: none
   }
@@ -146,8 +151,8 @@ export const ContentWrapperStyled = styled(ContentWrapper)`
   flex-direction: column;
   flex-shrink: 0;
   flex-grow: 1;
-  
-  @media screen and (min-width: 700px){
+
+  @media screen and (min-width: 700px) {
     overflow-x: visible;
   }
 `;
@@ -155,14 +160,14 @@ export const ContentWrapperStyled = styled(ContentWrapper)`
 export const ImageStyled = styled.div`
   position: absolute;
   z-index: 2;
-  ${({ styles }) => styles};
+  ${({styles}) => styles};
   max-height: 37vh;
 
   & svg {
     width: 100%;
     height: 100%;
   }
-  
+
   @media screen and (min-width: 400px) and (min-height: 600px) {
     max-height: calc(76vh - 64px - 20em);
   }
@@ -178,6 +183,7 @@ export const TopLineStyledBg = styled(TopLine)`
   width: 100%;
   height: 42.666vw;
   max-height: 24vh;
+  
   @media screen and (max-width: 699px) {
     display: none
   }
@@ -198,9 +204,11 @@ export const SmallCircleStyledBg = styled(SmallCircleStyled)`
   z-index: 3;
   height: 14.4vw;
   width: 14.4vw;
+  
   @media screen and (max-width: 699px) {
     display: none
   }
+  
   @media screen and (min-width: 700px) {
     display: block;
   }

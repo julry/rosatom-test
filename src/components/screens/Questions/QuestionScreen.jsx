@@ -31,12 +31,12 @@ export const QuestionScreen = () => {
         const {id} = card;
         updateAnswer(id, {isAgreed});
         setTimeout(() => {
-            if (currentIndex + 1 === cards.length){
+            if (currentIndex + 1 === cards.length) {
                 next();
             }
             if (card.type === QUESTION_TYPES.differentiating && isAgreed && card?.answer?.agree) {
                 skipToRandomCards(index, cards);
-                updateProgress('resultType', card?.answer?.agree)
+                updateProgress('resultType', card?.answer?.agree);
             }
             setPrevCardId(id);
             setCurrentIndex(index => ++index);
@@ -49,7 +49,7 @@ export const QuestionScreen = () => {
                 updateCards(getCardById(prevCardId)?.dependType, prevCardId);
             }
         }
-    }, [prevCardId])
+    }, [prevCardId]);
 
     return (
         <Wrapper>

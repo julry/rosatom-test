@@ -2,18 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import QRCodeStyling from 'qr-code-styling';
 import { colors } from '../../constants/colors';
-import { BoldText, RegularText, } from './styledTexts';
-import { getLinkWithoutParams } from '../../utils/getLinkWithoutParams';
+import { BoldText } from './styledTexts';
 import { BackgroundWrapper, ContentWrapper } from './wrappers';
 import { DesktopGreenLine } from './svg/DesktopGreenLine';
 import { desktopCat } from '../../constants/images';
 import { Atom } from './svg/Atom';
-import { LogoStyled } from './LogoStyled';
 import { LogoDesktop } from './svg/LogoDesktop';
+import { FlexWrapper } from './FlexWrapper';
 
-const FlexWrapper = styled.div`
-  display: flex;
-`;
 
 const ContentWrapperStyled = styled(ContentWrapper)`
   margin: 0;
@@ -41,6 +37,7 @@ const Title = styled(BoldText)`
 const TextWrapper = styled(FlexWrapper)`
   font-size: 20px;
   justify-content: space-between;
+  align-items: flex-start;
   flex-grow: 1;
   margin-left: 25px;
   flex-direction: column;
@@ -54,7 +51,7 @@ const TextBold = styled(BoldText)`
 
 const QrWrapper = styled(FlexWrapper)`
   margin-top: auto;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 9.16667vh;
 `;
@@ -64,6 +61,7 @@ const ImageWrapper = styled(FlexWrapper)`
   right: 0;
   bottom: 0;
   height: 80vh;
+  align-items: flex-end;
   max-width: calc(93.75vw - 590px);
 `;
 
@@ -174,11 +172,6 @@ export const InfoQr = () => {
             </BackgroundWrapper>
             <ContentWrapperStyled>
                 <Title>{'Welcome в мир\nAtomic IT-котиков'}</Title>
-                {/*<Description>*/}
-                {/*    До карьеры мечты осталось всего несколько свайпов!{'\n'}*/}
-                {/*    Открывай игру на телефоне, отвечай на вопросы{'\n'}и находи мэтч с одной из команд Ростелекома.*/}
-                {/*    {'\n'}*/}
-                {/*</Description>*/}
                 <QrWrapper>
                     <div ref={ref} />
                     <TextWrapper>

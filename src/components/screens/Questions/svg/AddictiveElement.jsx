@@ -17,6 +17,5 @@ export const AddictiveElement = (props) => {
                 </clipPath>
             </defs>
         </svg>
-
-    )
-}
+    );
+};

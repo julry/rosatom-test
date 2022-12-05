@@ -296,5 +296,4 @@ export const FunCat2 = (props) => (
                     </clipPath>
             </defs>
     </svg>
-
-)
+);

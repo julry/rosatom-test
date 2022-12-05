@@ -26,7 +26,7 @@ export const QUESTION_TYPES = {
     common: 'common',
     differentiating: 'differentiating',
     random: 'random'
-}
+};
 
 export const cards = [
     {
@@ -62,7 +62,8 @@ export const cards = [
         text: () => (
             <p>
                 <HighlightedText isFirstWord={true}>{'Error404?'}&nbsp;</HighlightedText>
-                {'\nСпешу на помощь! Научу дружить с'}&nbsp;<HighlightedText>{' компьютером'}</HighlightedText>&nbsp;{' даже бабушку'}
+                {'\nСпешу на помощь! Научу дружить с'}&nbsp;
+                <HighlightedText>{' компьютером'}</HighlightedText>&nbsp;{' даже бабушку'}
             </p>
         ),
         type: QUESTION_TYPES.common,
@@ -335,7 +336,8 @@ export const cards = [
         id: 'card-fun-4',
         text: () => (
             <p>
-                {'Знаю, что возраст\n'}<HighlightedText isFirstWord={true}>нейтронов</HighlightedText>{' измеряется\nне в секундах'}
+                {'Знаю, что возраст\n'}<HighlightedText
+                isFirstWord={true}>нейтронов</HighlightedText>{' измеряется\nне в секундах'}
             </p>
         ),
         type: QUESTION_TYPES.random,

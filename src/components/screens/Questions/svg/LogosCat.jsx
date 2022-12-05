@@ -228,5 +228,4 @@ export const LogosCat = (props) => (
             </clipPath>
         </defs>
     </svg>
-
-)
+);

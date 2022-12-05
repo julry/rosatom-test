@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../constants/colors';
 import { CloseIcon } from './svg/CloseIcon';
 
 const Wrapper = styled.div`
@@ -40,8 +39,8 @@ const CloseIconStyled = styled(CloseIcon)`
   max-width: 13px;
   max-height: 13px;
   width: 1.9vh;
-  height: 1.9vh;  
-  
+  height: 1.9vh;
+
   & svg {
     height: 100%;
   }

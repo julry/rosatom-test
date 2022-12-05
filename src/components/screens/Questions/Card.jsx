@@ -25,25 +25,25 @@ export const Card = (props) => {
 
     const onClick = (isAgreed) => {
         setClicked({isAgreed});
-        onAnswer({isAgreed, card, index: curIndex})
-    }
+        onAnswer({isAgreed, card, index: curIndex});
+    };
     const duration = SWIPE_DURATION;
 
     const defaultStyle = {
         transition: `transform ${duration}ms ease-in-out`,
-    }
+    };
 
     const transitionStyles = {
         entering: {
             transform: 'translateY(0)'
         },
-        entered:  {
-           transform: 'translateY(0)'
+        entered: {
+            transform: 'translateY(0)'
         },
-        exiting:  {
+        exiting: {
             transform: curIndex === amount ? 'translateY(0)' : isAgreed ? 'translateY(-100%)' : 'translateY(100%)'
         },
-        exited:  {
+        exited: {
             transform: curIndex === amount ? 'translateY(0)' : isAgreed ? 'translateY(-100%)' : 'translateY(100%)'
         },
     };
@@ -54,8 +54,8 @@ export const Card = (props) => {
                 <StyledCard
                     ref={nodeRef}
                     style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state]
+                        ...defaultStyle,
+                        ...transitionStyles[state]
                     }}
                     index={index}
                 >
@@ -79,7 +79,7 @@ export const Card = (props) => {
                                 onClick={() => onClick(true)}
                                 shadowColor={'#003274'}
                             >
-                                <AgreeIcon />
+                                <AgreeIcon/>
                             </YesBtn>
                         </ButtonsWrapper>
                         {
@@ -91,17 +91,17 @@ export const Card = (props) => {
                     </StyledContentCard>
                     <BackgroundWrapper>
                         <LogoStyled/>
-                        {isAddLine && <TopLineStyled />}
+                        {isAddLine && <TopLineStyled/>}
                         <AtomStyledWrapper>
-                            <AtomStyled />
+                            <AtomStyled/>
                         </AtomStyledWrapper>
                         <SmallCircleStyledWrapper>
-                            <SmallCircleStyled isFun={isFun} />
+                            <SmallCircleStyled isFun={isFun}/>
                         </SmallCircleStyledWrapper>
-                        <LineStyled isFun={isFun} />
+                        <LineStyled isFun={isFun}/>
                     </BackgroundWrapper>
                 </StyledCard>
             )}
         </Transition>
     );
-}
+};

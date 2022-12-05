@@ -3,11 +3,10 @@ import { useProgress } from '../../../hooks/useProgress';
 import { Description } from '../../shared/styledTexts';
 // import { reachMetrikaGoal } from '../../../utils/reachMetrikaGoal';
 import { resultTypes } from '../../../constants/resultTypes.config';
-import { BackgroundWrapper, ContentWrapper } from '../../shared/wrappers';
+import { BackgroundWrapper } from '../../shared/wrappers';
 import {
     BluePlateStyled,
     BluePlateWrapper,
-    BottomLineStyled,
     ButtonStyled,
     MiniLabelContainer,
     MiniLabelWrapper,
@@ -22,7 +21,7 @@ import {
     ContentWrapperStyled,
     ImageStyled,
     SubTitle,
-    TopLineWrapper, TopLineStyledBg, BottomLineWrapperStyled, BottomLineStyledBg, SmallCircleStyledBg, DescriptionStyled
+    TopLineWrapper, TopLineStyledBg, BottomLineStyledBg, SmallCircleStyledBg, DescriptionStyled
 } from './styledComponents';
 
 export const Final = () => {
@@ -41,9 +40,9 @@ export const Final = () => {
     return (
         <Wrapper>
             <BackgroundWrapper>
-                <TopLineStyledBg />
+                <TopLineStyledBg/>
                 <AtomStyledWrapper>
-                    <AtomStyled />
+                    <AtomStyled/>
                 </AtomStyledWrapper>
                 <BottomLineStyledBg bottom={getBottomLinePosition()}/>
                 <SmallCircleStyledBg isFun={true}/>
