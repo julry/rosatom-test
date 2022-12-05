@@ -77,6 +77,7 @@ export const AnswerButton = styled(Button)`
   border-radius: 50%;
   transform: ${({clicked}) => clicked ? 'scale(0.7)' : 'none' };
   ${({clicked}) => clicked && 'animation: none'};
+  
   & svg {
     width: 8.0453vh;
     height: 7.784vh;
@@ -97,7 +98,6 @@ export const YesBtn = styled(AnswerButton)`
   background: ${colors.green};
   box-shadow: ${({clicked}) => clicked ? '' : ' 0 0 10px #003274' };
 `;
-
 
 export const LineStyled = styled(Line)`
   position: absolute;
@@ -130,8 +130,7 @@ export const AddictiveElementStyled = styled(AddictiveElement)`
   min-width: 40px;
   min-height: 40px;
   max-height: 14vh;
-
-
+  
   @media screen and (max-height: 600px) {
     width: 19vw;
     height: 16%;

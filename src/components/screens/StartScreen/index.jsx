@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useProgress } from '../../../hooks/useProgress';
-import { ColoredText, Description } from '../../shared/styledTexts';
+import { Description } from '../../shared/styledTexts';
 import { reachMetrikaGoal } from '../../../utils/reachMetrikaGoal';
 import {
     AtomStyled, BottomBlueLineStyled,
@@ -29,8 +29,8 @@ export const StartScreen = () => {
     return (
         <Wrapper>
             <BackgroundWrapper>
-                <TopBlueLineStyled />
-                <GreenLineStyled />
+                <TopBlueLineStyled/>
+                <GreenLineStyled/>
                 <BottomBlueLineStyled/>
             </BackgroundWrapper>
             <ContentWrapper>
@@ -38,27 +38,28 @@ export const StartScreen = () => {
                     <InfoWrapper>
                         -
                         <InfoSignWrapper onClick={() => setIsModal(true)}>
-                            <InfoSignStyled />
+                            <InfoSignStyled/>
                         </InfoSignWrapper>
                     </InfoWrapper>
                     котик?
                 </StyledTitle>
                 <DescrWrapper>
-                    <AtomStyled />
+                    <AtomStyled/>
                     <Description>
                         Знакомься с нашим тестом{'\n'}и отмечай лайком выражения{'\n'}про себя!
                         А мы расскажем, чем{'\n'}ты будешь заниматься в Росатоме :)
                     </Description>
                 </DescrWrapper>
                 <ButtonStyled onClick={onStart}> начнем </ButtonStyled>
-                <StyledCat />
+                <StyledCat/>
             </ContentWrapper>
             {isModal && (
                 <Modal onClose={() => setIsModal(false)}>
                     <ModalText>
                         <ColoredTextStyled color={colors.green}>
                             <b>Atomic IT</b>
-                        </ColoredTextStyled> - это специалисты, которые работают на стыке науки и информационных технологий
+                        </ColoredTextStyled> - это специалисты, которые работают на стыке науки и информационных
+                        технологий
                     </ModalText>
                 </Modal>
             )}

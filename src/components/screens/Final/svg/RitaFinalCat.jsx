@@ -7,4 +7,4 @@ const SvgStyled = styled(MDCat)`
 
 export const RitaFinalCat = (props) => (
     <SvgStyled {...props} />
-)
+);

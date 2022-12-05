@@ -246,4 +246,4 @@ export const CourseFinalCat = (props) => (
             </clipPath>
         </defs>
     </svg>
-)
+);

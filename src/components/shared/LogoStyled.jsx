@@ -21,6 +21,6 @@ const StyledLogo = styled(Logo)`
 
 export const LogoStyled = (props) => (
     <LogoWrapper {...props}>
-        <StyledLogo />
+        <StyledLogo/>
     </LogoWrapper>
-)
+);
