@@ -4,7 +4,7 @@ import { ColoredText, Description } from '../../shared/styledTexts';
 import { reachMetrikaGoal } from '../../../utils/reachMetrikaGoal';
 import {
     AtomStyled, BottomBlueLineStyled,
-    ButtonStyled,
+    ButtonStyled, ColoredTextStyled,
     DescrWrapper, GreenLineStyled, InfoSignStyled,
     InfoSignWrapper,
     InfoWrapper, ModalText, StyledCat,
@@ -56,9 +56,9 @@ export const StartScreen = () => {
             {isModal && (
                 <Modal onClose={() => setIsModal(false)}>
                     <ModalText>
-                        <ColoredText color={colors.green}>
+                        <ColoredTextStyled color={colors.green}>
                             <b>Atomic IT</b>
-                        </ColoredText> - это специалисты, которые работают на стыке науки и информационных технологий
+                        </ColoredTextStyled> - это специалисты, которые работают на стыке науки и информационных технологий
                     </ModalText>
                 </Modal>
             )}

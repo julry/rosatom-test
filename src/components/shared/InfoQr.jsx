@@ -9,6 +9,7 @@ import { DesktopGreenLine } from './svg/DesktopGreenLine';
 import { desktopCat } from '../../constants/images';
 import { Atom } from './svg/Atom';
 import { LogoStyled } from './LogoStyled';
+import { LogoDesktop } from './svg/LogoDesktop';
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -93,8 +94,12 @@ const AtomStyled = styled(Atom)`
   height: 70px;
 `;
 
-const LogoDesktopStyled = styled(LogoStyled)`
+const LogoDesktopStyled = styled(LogoDesktop)`
+  position: absolute;
+  right: 3.2vw;
   top: 5.8333vh;
+  width: 243px;
+  height: 43px;
 `;
 
 const onLinkCopy = () => {
