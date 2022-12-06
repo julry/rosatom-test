@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import QRCodeStyling from 'qr-code-styling';
 import { colors } from '../../constants/colors';
@@ -9,7 +9,8 @@ import { desktopCat } from '../../constants/images';
 import { Atom } from './svg/Atom';
 import { LogoDesktop } from './svg/LogoDesktop';
 import { FlexWrapper } from './FlexWrapper';
-
+import { Modal } from './Modal';
+import { DoneMark } from './svg/DoneMark';
 
 const ContentWrapperStyled = styled(ContentWrapper)`
   margin: 0;
@@ -27,7 +28,6 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 `;
-
 
 const Title = styled(BoldText)`
   font-size: 59px;
@@ -100,6 +100,21 @@ const LogoDesktopStyled = styled(LogoDesktop)`
   height: 43px;
 `;
 
+const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 20px;
+`;
+
+const DoneMarkStyled = styled(DoneMark)`
+  height: 116px;
+  width: 116px;
+  margin-bottom: 24px;
+`;
+
 const onLinkCopy = () => {
     const text = window.location.href?.split('?')[0];
     if (window.clipboardData && window.clipboardData.setData) {
@@ -135,6 +150,13 @@ const onLinkCopy = () => {
 
 export const InfoQr = () => {
     const ref = useRef();
+    const [isModal, setIsModal] = useState(false);
+
+    const onCopyButtonClick = () => {
+        onLinkCopy();
+        setIsModal(true);
+        setTimeout(() => setIsModal(false), 3500);
+    };
 
     useEffect(() => {
         if (!ref?.current?.children.length) {
@@ -179,10 +201,18 @@ export const InfoQr = () => {
                             'Для этого\nнужно открыть наш тест с телефона.\n' +
                             'А мы тебе в этом поможем!'}
                         </p>
-                        <TextBold>копируй себе <CopyBtn onClick={onLinkCopy}>ссылку</CopyBtn>{'\n'}или Сканируй QR-код</TextBold>
+                        <TextBold>копируй себе <CopyBtn onClick={onCopyButtonClick}>ссылку</CopyBtn>{'\n'}или Сканируй QR-код</TextBold>
                     </TextWrapper>
                 </QrWrapper>
             </ContentWrapperStyled>
+            {isModal && (
+                <Modal>
+                    <ModalContent>
+                        <DoneMarkStyled />
+                        <p>Ссылка скопирована</p>
+                    </ModalContent>
+                </Modal>
+            )}
             <ImageWrapper>
                 <Image src={desktopCat} alt={''} />
             </ImageWrapper>

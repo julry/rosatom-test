@@ -90,7 +90,7 @@ export const NoBtn = styled(AnswerButton)`
   background: ${colors.blue};
   box-shadow: ${({clicked}) => clicked ? '' : ' 0 0 10px #B6CE38' };
   & svg {
-    margin-top: 0.27vw;
+    margin-top: 1.15vh;
   }
 `;
 

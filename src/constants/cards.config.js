@@ -62,8 +62,8 @@ export const cards = [
         text: () => (
             <p>
                 <HighlightedText isFirstWord={true}>{'Error404?'}&nbsp;</HighlightedText>
-                {'\nСпешу на помощь! Научу дружить с'}&nbsp;
-                <HighlightedText>{' компьютером'}</HighlightedText>&nbsp;{' даже бабушку'}
+                {'\nСпешу на помощь! Научу\nдружить с'}&nbsp;
+                <HighlightedText>{' компьютером'}</HighlightedText>{'\nдаже бабушку'}
             </p>
         ),
         type: QUESTION_TYPES.common,

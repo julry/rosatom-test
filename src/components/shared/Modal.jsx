@@ -30,6 +30,11 @@ const ContentWrapper = styled.div`
   width: 66.8vw;
   padding: 5.847vh 6.9333vw 4.6476vh;
   background: white;
+  max-width: 310px;
+  
+  @media screen and (min-width: 1000px) {
+    padding: 50px;
+  }
 `;
 
 const CloseIconStyled = styled(CloseIcon)`
@@ -51,7 +56,7 @@ export const Modal = (props) => (
     <Wrapper>
         <BackgroundModal onClick={props.onClose}/>
         <ContentWrapper>
-            <CloseIconStyled onClick={props.onClose}/>
+            {props.onClose && <CloseIconStyled onClick={props.onClose}/>}
             {props.children}
         </ContentWrapper>
     </Wrapper>
