@@ -54,6 +54,14 @@ const QrWrapper = styled(FlexWrapper)`
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 9.16667vh;
+  
+  @media screen and (max-height: 690px) {
+    margin-bottom: 5.16667vh;
+  }
+
+  @media screen and (max-height: 660px) {
+    margin-bottom: 2.16667vh;
+  }
 `;
 
 const ImageWrapper = styled(FlexWrapper)`
