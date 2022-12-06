@@ -54,7 +54,7 @@ export const MiniLabelWrapper = styled(FlexWrapper)`
   
   @media screen and (min-height: 700px) {
     margin: 3.2% 0;
-    height: 88px;
+    height: 52px;
   }
 `;
 
@@ -216,4 +216,8 @@ export const SmallCircleStyledBg = styled(SmallCircleStyled)`
 
 export const DescriptionStyled = styled(Description)`
   min-height: 8.2em;
+  
+  @media screen and (max-width: 374px) {
+    white-space: normal;
+  }
 `;

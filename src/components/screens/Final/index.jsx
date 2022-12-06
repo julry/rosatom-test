@@ -23,6 +23,7 @@ import {
     SubTitle,
     TopLineWrapper, TopLineStyledBg, BottomLineStyledBg, SmallCircleStyledBg, DescriptionStyled
 } from './styledComponents';
+import { openHref } from '../../../utils/openHref';
 
 export const Final = () => {
     const {progress} = useProgress();
@@ -73,7 +74,7 @@ export const Final = () => {
                         </ImageStyled>
                     )}
                 </Content>
-                <ButtonStyled>я в деле!</ButtonStyled>
+                <ButtonStyled onClick={() => openHref('https://clck.ru/32rkiQ')}>я в деле!</ButtonStyled>
                 <SmallCircleStyled isFun={true}/>
             </ContentWrapperStyled>
         </Wrapper>
