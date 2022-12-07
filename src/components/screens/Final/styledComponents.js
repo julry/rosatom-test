@@ -54,7 +54,7 @@ export const MiniLabelWrapper = styled(FlexWrapper)`
   
   @media screen and (min-height: 700px) {
     margin: 3.2% 0;
-    height: ${({hasShortLabel}) => hasShortLabel ? '52px' : '70px'};
+    height: ${({hasShortLabel}) => hasShortLabel ? '52px' : 'auto'};
   }
 `;
 
