@@ -58,7 +58,7 @@ export const Final = () => {
                         Ты{'\n'}
                         {result.label}!
                     </Title>
-                    <MiniLabelWrapper>
+                    <MiniLabelWrapper hasShortLabel={result.shortMiniLabel}>
                         <MiniLabelContainer hasShortLabel={result.shortMiniLabel}>
                             <Description>{result.miniLabel}</Description>
                         </MiniLabelContainer>
