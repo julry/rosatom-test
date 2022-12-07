@@ -17,6 +17,7 @@ const LogoWrapper = styled.div`
 const StyledLogo = styled(Logo)`
   width: 100%;
   height: 100%;
+  object-fit: contain;
 `;
 
 export const LogoStyled = (props) => (
