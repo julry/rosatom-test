@@ -34,7 +34,7 @@ export const cards = [
         text: () => (
             <p>
                 {'Покоряю параллельное\n'}
-                <HighlightedText isFirstWord={true}>{'программирование.'}</HighlightedText>&nbsp;{'Скоро\n'}
+                <HighlightedText>{'программирование.'}</HighlightedText>&nbsp;{'Скоро\n'}
                 {'моему мастерству будут\nзавидовать лучшие\nповелители '}&nbsp;
                 <HighlightedText>{'кода'}</HighlightedText>
             </p>
@@ -61,9 +61,9 @@ export const cards = [
         id: 'startCard-' + CARD_TYPES.communication,
         text: () => (
             <p>
-                <HighlightedText isFirstWord={true}>{'Error404?'}&nbsp;</HighlightedText>
+                <HighlightedText>{'Error404?'}</HighlightedText>
                 {'\nСпешу на помощь! Научу\nдружить с'}&nbsp;
-                <HighlightedText>{' компьютером'}</HighlightedText>{'\nдаже бабушку'}
+                <HighlightedText>{'компьютером'}</HighlightedText>{'\nдаже бабушку'}
             </p>
         ),
         type: QUESTION_TYPES.common,
@@ -86,7 +86,7 @@ export const cards = [
         text: () => (
             <p>
                 {'Не могу стерпеть,\nкогда'}&nbsp;<HighlightedText>{'кнопка'}</HighlightedText>&nbsp;{' на сайте\n'}
-                <HighlightedText isFirstWord={true}>криво-косо…</HighlightedText>
+                <HighlightedText>криво-косо…</HighlightedText>
             </p>
         ),
         type: QUESTION_TYPES.common,
@@ -131,7 +131,7 @@ export const cards = [
         id: 'startCard-' + CARD_TYPES.fun,
         text: () => (
             <p>
-                {'Так много всего\n'}<HighlightedText isFirstWord={true}>интересного вокруг,</HighlightedText>
+                {'Так много всего\n'}<HighlightedText>{'интересного вокруг,'}&nbsp;</HighlightedText>
                 {'\nчто я даже '}<HighlightedText>не знаю,</HighlightedText>{'\nза что мне взяться!'}
             </p>
         ),
@@ -311,8 +311,8 @@ export const cards = [
     {
         id: 'card-fun-3',
         text: () => (<p>
-            <HighlightedText isFirstWord={true}>Кто, если не я</HighlightedText>{' – самый\nяркий представитель\n'}
-            <HighlightedText isFirstWord={true}>поколения интеллекта?</HighlightedText>
+            <HighlightedText>Кто, если не я</HighlightedText>{' – самый\nяркий представитель\n'}
+            <HighlightedText>поколения интеллекта?</HighlightedText>
         </p>),
         type: QUESTION_TYPES.random,
         image: {
@@ -336,8 +336,7 @@ export const cards = [
         id: 'card-fun-4',
         text: () => (
             <p>
-                {'Знаю, что возраст\n'}<HighlightedText
-                isFirstWord={true}>нейтронов</HighlightedText>{' измеряется\nне в секундах'}
+                {'Знаю, что возраст\n'}<HighlightedText>нейтронов</HighlightedText>{' измеряется\nне в секундах'}
             </p>
         ),
         type: QUESTION_TYPES.random,
