@@ -171,6 +171,7 @@ export const InfoQr = () => {
             const qrCode = new QRCodeStyling({
                 width: 220,
                 height: 220,
+                type: "svg",
                 dotsOptions: {
                     color: colors.blue,
                     type: 'rounded'

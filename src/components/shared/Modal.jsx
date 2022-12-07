@@ -31,6 +31,7 @@ const ContentWrapper = styled.div`
   padding: 5.847vh 6.9333vw 4.6476vh;
   background: white;
   max-width: 310px;
+  font-weight: 300;
   
   @media screen and (min-width: 1000px) {
     padding: 32px;
