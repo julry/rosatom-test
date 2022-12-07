@@ -11,14 +11,14 @@ const Highlighted = styled.span`
     z-index: -1;
     border-radius: 0.87em;
     top: calc(0.7em + 1px);
-    left: ${({isFirstWord}) => isFirstWord ? '-0.43em' : '-0.18em'};
+    left: -0.22em;
     position: absolute;
     transform: translateY(-50%);
     background: ${colors.lightGreen};
-    padding: 0 ${({isFirstWord}) => isFirstWord ? '0.33em' : '0.22em'};
+    padding: 0 0.22em;
   }
 `;
 
 export const HighlightedText = (props) => (
-    <Highlighted isFirstWord={props.isFirstWord}>{props.children}</Highlighted>
+    <Highlighted>{props.children}</Highlighted>
 );
