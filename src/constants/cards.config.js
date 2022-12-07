@@ -34,7 +34,7 @@ export const cards = [
         text: () => (
             <p>
                 {'Покоряю параллельное\n'}
-                <HighlightedText padding={'0 0.11em 0 0.22em'}>{'программирование.'}</HighlightedText>&nbsp;{'Скоро\n'}
+                <HighlightedText padding={'0 0.11em 0 0.22em'}>{'программирование.'}</HighlightedText>&nbsp;{' Скоро\n'}
                 {'моему мастерству будут\nзавидовать лучшие\nповелители '}&nbsp;
                 <HighlightedText>{'кода'}</HighlightedText>
             </p>
@@ -62,7 +62,7 @@ export const cards = [
         text: () => (
             <p>
                 <HighlightedText>{'Error404?'}</HighlightedText>
-                {'\nСпешу на помощь! Научу\nдружить с'}&nbsp;
+                {'\nСпешу на помощь! Научу\nдружить с '}&nbsp;
                 <HighlightedText>{'компьютером'}</HighlightedText>{'\nдаже бабушку'}
             </p>
         ),
@@ -85,7 +85,7 @@ export const cards = [
         id: 'startCard-' + CARD_TYPES.design,
         text: () => (
             <p>
-                {'Не могу стерпеть,\nкогда'}&nbsp;<HighlightedText>{'кнопка'}</HighlightedText>&nbsp;{' на сайте\n'}
+                {'Не могу стерпеть,\nкогда '}&nbsp;<HighlightedText>{'кнопка'}</HighlightedText>&nbsp;{' на сайте\n'}
                 <HighlightedText>криво-косо…</HighlightedText>
             </p>
         ),
@@ -109,7 +109,7 @@ export const cards = [
         id: 'startCard-' + CARD_TYPES.math,
         text: () => (
             <p>
-                {'Пятерка по '}<HighlightedText>математике</HighlightedText>{'\nвсегда моя!'}
+                {'Пятерка по '}&nbsp;<HighlightedText>математике</HighlightedText>{'\nвсегда моя!'}
             </p>
         ),
         type: QUESTION_TYPES.common,
@@ -132,7 +132,7 @@ export const cards = [
         text: () => (
             <p>
                 {'Так много всего\n'}<HighlightedText>{'интересного вокруг,'}&nbsp;</HighlightedText>
-                {'\nчто я даже '}<HighlightedText>не знаю,</HighlightedText>{'\nза что мне взяться!'}
+                {'\nчто я даже '}&nbsp;<HighlightedText>не знаю,</HighlightedText>{'\nза что мне взяться!'}
             </p>
         ),
         type: QUESTION_TYPES.common,
@@ -154,8 +154,8 @@ export const cards = [
         id: 'card-' + answerTypes.Course,
         text: () => (
             <p>
-                {'Готов '} <HighlightedText>поддержать</HighlightedText>{' в\nтрудную минуту\nкомпьютерного '}
-                <HighlightedText>коллапса</HighlightedText> {'\nдаже на дистанции в\nдесятки тысяч километров'}
+                {'Готов '}&nbsp;<HighlightedText>поддержать</HighlightedText>{'\nв трудную минуту\nкомпьютерного '}
+                &nbsp;<HighlightedText>коллапса</HighlightedText> {'\nдаже на дистанции в\nдесятки тысяч километров'}
             </p>
         ),
         type: QUESTION_TYPES.differentiating,
@@ -178,8 +178,8 @@ export const cards = [
         id: 'card-' + answerTypes.Logos,
         text: () => (
             <p>
-                {'Не стану изобретать\nвелосипед – '}<HighlightedText>спроектирую</HighlightedText>
-                {'\nнечто масштабное\nи '} <HighlightedText>инновационное</HighlightedText>
+                {'Не стану изобретать\nвелосипед – '}&nbsp;<HighlightedText>спроектирую</HighlightedText>
+                {'\nнечто масштабное\nи '}&nbsp;<HighlightedText>инновационное</HighlightedText>
             </p>
         ),
         type: QUESTION_TYPES.differentiating,
@@ -201,7 +201,7 @@ export const cards = [
         id: 'card-' + answerTypes.SmartCity,
         text: () => (
             <p>
-                {'Всегда хотелось сделать\nсвой '} <HighlightedText>город лучше</HighlightedText>
+                {'Всегда хотелось сделать\nсвой '}&nbsp;<HighlightedText>город лучше</HighlightedText>
             </p>
         ),
         image: {
@@ -223,8 +223,8 @@ export const cards = [
         id: 'card-' + answerTypes.MultiD,
         text: () => (
             <p>
-                {'Мысленно соединю\nв '}<HighlightedText>единое</HighlightedText>
-                {' целое\nмножество '}<HighlightedText>частичек</HighlightedText>{'\nв масштабе 100 к 1'}
+                {'Мысленно соединю\nв '}&nbsp;<HighlightedText>единое</HighlightedText>&nbsp;
+                {' целое\nмножество '}&nbsp;<HighlightedText>частичек</HighlightedText>{'\nв масштабе 100 к 1'}
             </p>
         ),
         type: QUESTION_TYPES.differentiating,
@@ -245,7 +245,7 @@ export const cards = [
         id: 'card-' + answerTypes.Rita,
         text: () => (
             <p>
-                {'Я за то, чтобы '}<HighlightedText>роботы</HighlightedText> {'\nпомогали '}
+                {'Я за то, чтобы '}&nbsp;<HighlightedText>роботы</HighlightedText> {'\nпомогали '}&nbsp;
                 <HighlightedText>человеку</HighlightedText>{'\nв повседневной жизни'}
             </p>
         ),
@@ -266,8 +266,8 @@ export const cards = [
     {
         id: `card-${CARD_TYPES.fun}-1`,
         text: () => (<p>
-            {'Хочу '}<HighlightedText>участвовать</HighlightedText>
-            {'\nв технологических\nпроектах '}<HighlightedText>мирового</HighlightedText>{'\nмасштаба'}
+            {'Хочу '}&nbsp;<HighlightedText>участвовать</HighlightedText>
+            {'\nв технологических проектах\n'}<HighlightedText>мирового</HighlightedText>&nbsp;{' масштаба'}
         </p>),
         type: QUESTION_TYPES.random,
         image: {
@@ -310,10 +310,12 @@ export const cards = [
     },
     {
         id: 'card-fun-3',
-        text: () => (<p>
-            <HighlightedText>Кто, если не я</HighlightedText>{' – самый\nяркий представитель\n'}
-            <HighlightedText>поколения интеллекта?</HighlightedText>
-        </p>),
+        text: () => (
+            <p>
+                <HighlightedText>Кто, если не я</HighlightedText>{' — самый\nяркий представитель\n'}
+                <HighlightedText>поколения интеллекта?</HighlightedText>
+            </p>
+        ),
         type: QUESTION_TYPES.random,
         image: {
             svg: DesignCat,
@@ -336,7 +338,7 @@ export const cards = [
         id: 'card-fun-4',
         text: () => (
             <p>
-                {'Знаю, что возраст\n'}<HighlightedText>нейтронов</HighlightedText>{' измеряется\nне в секундах'}
+                {'Знаю, что возраст\n'}<HighlightedText>нейтронов</HighlightedText>&nbsp;{' измеряется\nне в секундах'}
             </p>
         ),
         type: QUESTION_TYPES.random,

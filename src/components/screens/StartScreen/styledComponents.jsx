@@ -69,6 +69,8 @@ export const InfoSignStyled = styled(InfoIcon)`
 export const ModalText = styled(RegularText)`
   font-size: 14px;
   line-height: 17px;
+  font-weight: 300;
+
   @media screen and (max-width: 330px) {
     font-size: 10px;
     line-height: 13px;
