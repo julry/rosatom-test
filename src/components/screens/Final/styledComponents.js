@@ -111,6 +111,10 @@ export const TopLineWrapper = styled.div`
   @media screen and (max-height: 650px) {
     height: 35vw;
   };
+
+  @media screen and (max-height: 550px) {
+    height: 30vw;
+  };
 `;
 export const TopLineStyled = styled(TopLine)`
   width: 100%;
@@ -168,8 +172,12 @@ export const ImageStyled = styled.div`
     height: 100%;
   }
 
-  @media screen and (min-width: 400px) and (min-height: 600px) {
+  @media screen and (min-width: 400px) and (min-height: 550px) {
     max-height: calc(76vh - 64px - 20em);
+  }
+  
+  @media screen and (max-height: 580px) and (min-width: 335px){
+    max-height: calc(38vh - 64px);
   }
 `;
 
