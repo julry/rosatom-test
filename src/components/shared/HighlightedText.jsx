@@ -15,10 +15,10 @@ const Highlighted = styled.span`
     position: absolute;
     transform: translateY(-50%);
     background: ${colors.lightGreen};
-    padding: 0 0.22em;
+    padding: ${({padding}) => padding ?? '0 0.22em'};
   }
 `;
 
 export const HighlightedText = (props) => (
-    <Highlighted>{props.children}</Highlighted>
+    <Highlighted padding={props.padding}>{props.children}</Highlighted>
 );

@@ -34,7 +34,7 @@ export const cards = [
         text: () => (
             <p>
                 {'Покоряю параллельное\n'}
-                <HighlightedText>{'программирование.'}</HighlightedText>&nbsp;{'Скоро\n'}
+                <HighlightedText padding={'0 0.11em 0 0.22em'}>{'программирование.'}</HighlightedText>&nbsp;{'Скоро\n'}
                 {'моему мастерству будут\nзавидовать лучшие\nповелители '}&nbsp;
                 <HighlightedText>{'кода'}</HighlightedText>
             </p>
