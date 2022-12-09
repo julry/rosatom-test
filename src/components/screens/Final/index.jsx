@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useProgress } from '../../../hooks/useProgress';
 import { Description } from '../../shared/styledTexts';
 // import { reachMetrikaGoal } from '../../../utils/reachMetrikaGoal';
@@ -21,7 +21,12 @@ import {
     ContentWrapperStyled,
     ImageStyled,
     SubTitle,
-    TopLineWrapper, TopLineStyledBg, BottomLineStyledBg, SmallCircleStyledBg, DescriptionStyled
+    TopLineWrapper,
+    TopLineStyledBg,
+    BottomLineStyledBg,
+    DescriptionStyled,
+    ButtonWrapper,
+    ButtonTextContainer, Emoji
 } from './styledComponents';
 import { openHref } from '../../../utils/openHref';
 
@@ -29,14 +34,34 @@ export const Final = () => {
     const {progress} = useProgress();
     const {resultType} = progress;
     const result = resultTypes[resultType];
+    const smallTextRef = useRef();
 
     const getBottomLinePosition = () => {
         const heightProportion = document.documentElement.clientHeight * 0.25 / document.documentElement.clientWidth;
         if (heightProportion < 0.44) {
             return document.documentElement.clientHeight * 0.25 - document.documentElement.clientWidth * 0.45 + 'px';
         }
-        return 0;
+        return '0';
     };
+
+    const isSmallTextNotOnLine = () => {
+        const lineProportion = 375 / 167;
+        const partWidthProportion = 375 / 112;
+        if (!smallTextRef.current) return;
+        const {clientHeight, clientWidth: width} = document.documentElement;
+        const {offsetTop} = smallTextRef.current;
+        const bottomLinePosition = +getBottomLinePosition().replace('px', '');
+        const height = clientHeight - bottomLinePosition;
+        const linePosition = height - width / lineProportion;
+        return linePosition > offsetTop || (height - width / partWidthProportion) < offsetTop;
+    }
+
+    useEffect(() => {
+        if (smallTextRef.current && isSmallTextNotOnLine()) {
+            smallTextRef.current.style.color = '#000000';
+            smallTextRef.current.style.textShadow = '0px 0px 4px white';
+        }
+    }, []);
 
     return (
         <Wrapper>
@@ -46,7 +71,7 @@ export const Final = () => {
                     <AtomStyled/>
                 </AtomStyledWrapper>
                 <BottomLineStyledBg bottom={getBottomLinePosition()}/>
-                <SmallCircleStyledBg isFun={true}/>
+                <SmallCircleStyled isFun={true}/>
             </BackgroundWrapper>
             <ContentWrapperStyled>
                 <TopLineWrapper>
@@ -74,8 +99,13 @@ export const Final = () => {
                         </ImageStyled>
                     )}
                 </Content>
-                <ButtonStyled onClick={() => openHref('https://clck.ru/32rkiQ')}>я в деле!</ButtonStyled>
-                <SmallCircleStyled isFun={true}/>
+                <ButtonWrapper>
+                    <ButtonStyled onClick={() => openHref('https://clck.ru/32rkiQ')}>я в деле!</ButtonStyled>
+                    <ButtonTextContainer>
+                        <Emoji>👆🏻</Emoji>
+                        <p ref={smallTextRef}>{'Знакомься с другими\nAtomic IT-котиками тут'} </p>
+                    </ButtonTextContainer>
+                </ButtonWrapper>
             </ContentWrapperStyled>
         </Wrapper>
     );

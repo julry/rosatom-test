@@ -90,7 +90,6 @@ export const MiniTitle = styled(Description)`
 `;
 
 export const ButtonStyled = styled(Button)`
-  margin: 3vh 10.9333vw 0 auto;
   width: 39.2vw;
   min-width: 147px;
   height: 7.7961vh;
@@ -144,10 +143,6 @@ export const SmallCircleStyled = styled(SmallCircle)`
   z-index: 3;
   height: 14.4vw;
   width: 14.4vw;
-  
-  @media screen and (min-width: 700px) {
-    display: none
-  }
 `;
 
 export const ContentWrapperStyled = styled(ContentWrapper)`
@@ -204,24 +199,6 @@ export const BottomLineStyledBg = styled(BottomLine)`
   width: 100%;
 `;
 
-
-export const SmallCircleStyledBg = styled(SmallCircleStyled)`
-  position: absolute;
-  right: 11.4666vw;
-  bottom: 2.6987vh;
-  z-index: 3;
-  height: 14.4vw;
-  width: 14.4vw;
-  
-  @media screen and (max-width: 699px) {
-    display: none
-  }
-  
-  @media screen and (min-width: 700px) {
-    display: block;
-  }
-`;
-
 export const DescriptionStyled = styled(Description)`
   min-height: 8.2em;
   
@@ -229,3 +206,21 @@ export const DescriptionStyled = styled(Description)`
     white-space: normal;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  margin: 3vh 10.9333vw 0 auto;
+`;
+
+export const ButtonTextContainer = styled(FlexWrapper)`
+  margin-top: 1.4999vh;
+  justify-content: center;
+  & p {
+    color: white;
+    font-size: 8px;
+  }
+`;
+
+export const Emoji = styled.p`
+  font-size: 29px !important;
+  margin-right: 4px;
+`
