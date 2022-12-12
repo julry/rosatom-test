@@ -53,6 +53,7 @@ export const MiniLabelWrapper = styled(FlexWrapper)`
   
   @media screen and (min-height: 700px) {
     margin: 3.2% 0;
+    min-height: none;
     height: ${({hasShortLabel}) => hasShortLabel ? '52px' : 'auto'};
   }
 `;
@@ -74,9 +75,14 @@ export const MiniLabelContainer = styled.div`
 `;
 
 export const BluePlateWrapper = styled.div`
+  flex-shrink: 0;
+  display: flex;
   margin-left: 10px;
-  width: 23.46667vw;
+  width: calc(30% - 10px);
   height: 100%;
+  @media screen and (min-height: 700px){
+    width: calc(36% - 10px);
+  }
 `;
 
 export const BluePlateStyled = styled(BluePlate)`
@@ -137,11 +143,23 @@ export const AtomStyled = styled(Atom)`
 
 
 export const ContentWrapperStyled = styled(ContentWrapper)`
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  flex-grow: 1;
+  display: grid;
+  font-size: 12px;
+  grid-template-rows: minmax(42.666vw, 20vh) minmax(15.58em, 43.6281vh) 1fr;
+  grid-template-columns: 1fr;
 
+  @media screen and (min-height: 750px){
+    grid-template-rows: minmax(42.666vw, 20vh) minmax(15.58em, 40vh) 1fr;
+  }
+  
+  @media screen and (max-height: 650px) {
+    grid-template-rows: minmax(35vw, 24vh);
+  }
+
+  @media screen and (max-height: 550px) {
+    grid-template-rows: minmax(30vw, 24vh);
+  }
+  
   @media screen and (min-width: 700px) {
     overflow-x: visible;
   }
@@ -199,11 +217,14 @@ export const DescriptionStyled = styled(Description)`
 `;
 
 export const ButtonWrapper = styled.div`
-  margin: 3vh 10.9333vw 0 auto;
+  margin: 20px 10.9333vw 0 auto;
+  @media screen and (max-height: 530px) {
+    margin-top: 10px;
+  }
 `;
 
 export const ButtonTextContainer = styled(FlexWrapper)`
-  margin-top: 1.3vh;
+  margin-top: 5px;
   justify-content: center;
   & p {
     color: white;
