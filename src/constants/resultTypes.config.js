@@ -20,6 +20,7 @@ export const resultTypes = {
                    width: 40.8vw;
                    height: 49.6vw;
                    bottom: 2.9985%;
+                   left: 5.5vw;
             `
         }
     },
@@ -36,7 +37,7 @@ export const resultTypes = {
                    width: 25.0667vw;
                    height: 49.8667vw;
                    bottom: 3.2984%;
-                   left: 4.2667vw;
+                   left: 9.7667vw;
             `
         }
     },
@@ -53,7 +54,7 @@ export const resultTypes = {
                    width: 49.0667vw;
                    height: 42.1333vw;
                    bottom: 6.7466%;
-                   left: -0.5vw;
+                   left: 5vw;
             `
         }
     },
@@ -67,8 +68,8 @@ export const resultTypes = {
             styles: `
                    width: 33.6vw;
                    height: 39.2vw;
-                   bottom: 7.3973%;
-                   left: 0;
+                   bottom: 5.2474%;
+                   left: 5.5vw;
             `
         }
     },
@@ -83,7 +84,7 @@ export const resultTypes = {
                    width: 47.4667vw;
                    height: 59.22vw;
                    bottom: -2.3988%;
-                   left: -1.6vw;
+                   left: 3.9vw;
             `
         }
     },
