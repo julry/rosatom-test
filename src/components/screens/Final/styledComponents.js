@@ -104,6 +104,13 @@ export const ButtonStyled = styled(Button)`
   max-height: 60px;
   font-size: 20px;
   border-radius: 27px;
+  
+  @media screen and (max-width: 325px) {
+    min-height: 30px;
+    height: 35px;
+    min-width: 110px;
+    font-size: 14px;
+  }
 `;
 
 export const TopLineWrapper = styled.div`
@@ -219,14 +226,18 @@ export const DescriptionStyled = styled(Description)`
 `;
 
 export const ButtonWrapper = styled.div`
-  margin: 20px 10.9333vw 0 auto;
-  @media screen and (max-height: 530px) {
-    margin-top: 10px;
+  position: absolute;
+  right: 10.9333vw;
+  top: ${({top}) => top};
+  height: calc(100vw / (375 / 167));
+  
+  @media screen and (min-width: 700px) {
+    right: 0;
   }
 `;
 
 export const ButtonTextContainer = styled(FlexWrapper)`
-  margin-top: 5px;
+  margin-top: 3px;
   justify-content: center;
   & p {
     color: white;

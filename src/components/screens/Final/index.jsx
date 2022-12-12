@@ -43,24 +43,13 @@ export const Final = () => {
         return '0';
     };
 
-    const isSmallTextNotOnLine = () => {
-        const lineProportion = 375 / 167;
-        const partWidthProportion = 375 / 112;
-        if (!smallTextRef.current) return;
+    const getLineTop = () => {
         const {clientHeight, clientWidth: width} = document.documentElement;
-        const {offsetTop} = smallTextRef.current;
+        const lineProportion = 375 / 167;
         const bottomLinePosition = +getBottomLinePosition().replace('px', '');
         const height = clientHeight - bottomLinePosition;
-        const linePosition = height - width / lineProportion;
-        return linePosition > offsetTop || (height - width / partWidthProportion) < offsetTop;
+        return (height - width / lineProportion) - 25 + 'px';
     }
-
-    useEffect(() => {
-        if (smallTextRef.current && isSmallTextNotOnLine()) {
-            smallTextRef.current.style.color = '#000000';
-            smallTextRef.current.style.textShadow = '0px 0px 4px white';
-        }
-    }, []);
 
     return (
         <Wrapper>
@@ -97,7 +86,7 @@ export const Final = () => {
                         </ImageStyled>
                     )}
                 </Content>
-                <ButtonWrapper>
+                <ButtonWrapper top={getLineTop()}>
                     <ButtonStyled onClick={() => openHref('https://clck.ru/32rkiQ')}>я в деле!</ButtonStyled>
                     <ButtonTextContainer>
                         <Emoji>👆🏻</Emoji>
