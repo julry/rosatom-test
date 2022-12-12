@@ -7,7 +7,6 @@ import { Button } from '../../shared/Button';
 import { TopLine } from './svg/TopLine';
 import { BottomLine } from './svg/BottomLine';
 import { Atom } from '../../shared/svg/Atom';
-import { SmallCircle } from '../../shared/svg/SmallCircle';
 import { ContentWrapper } from '../../shared/wrappers';
 
 export const Wrapper = styled.div`
@@ -136,14 +135,6 @@ export const AtomStyled = styled(Atom)`
   height: 100%;
 `;
 
-export const SmallCircleStyled = styled(SmallCircle)`
-  position: absolute;
-  right: 11.4666vw;
-  bottom: 2.6987vh;
-  z-index: 3;
-  height: 14.4vw;
-  width: 14.4vw;
-`;
 
 export const ContentWrapperStyled = styled(ContentWrapper)`
   display: flex;
@@ -212,7 +203,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ButtonTextContainer = styled(FlexWrapper)`
-  margin-top: 1.4999vh;
+  margin-top: 1.3vh;
   justify-content: center;
   & p {
     color: white;

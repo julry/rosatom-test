@@ -5,7 +5,7 @@ import { AgreeIcon } from '../../shared/svg/AgreeIcon';
 import { BackgroundWrapper } from '../../shared/wrappers';
 import {
     AddictiveElementStyled, AtomStyled, AtomStyledWrapper,
-    ButtonsWrapper, ImageStyled, LineStyled, NoBtn, SmallCircleStyled, SmallCircleStyledWrapper,
+    ButtonsWrapper, ImageStyled, LineStyled, NoBtn,
     StyledAmount,
     StyledCard,
     StyledContentCard,
@@ -95,9 +95,6 @@ export const Card = (props) => {
                         <AtomStyledWrapper>
                             <AtomStyled/>
                         </AtomStyledWrapper>
-                        <SmallCircleStyledWrapper>
-                            <SmallCircleStyled isFun={isFun}/>
-                        </SmallCircleStyledWrapper>
                         <LineStyled isFun={isFun}/>
                     </BackgroundWrapper>
                 </StyledCard>
