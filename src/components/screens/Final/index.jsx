@@ -16,7 +16,6 @@ import {
     Wrapper,
     AtomStyled,
     AtomStyledWrapper,
-    SmallCircleStyled,
     Content,
     ContentWrapperStyled,
     ImageStyled,
@@ -71,7 +70,6 @@ export const Final = () => {
                     <AtomStyled/>
                 </AtomStyledWrapper>
                 <BottomLineStyledBg bottom={getBottomLinePosition()}/>
-                <SmallCircleStyled isFun={true}/>
             </BackgroundWrapper>
             <ContentWrapperStyled>
                 <TopLineWrapper>

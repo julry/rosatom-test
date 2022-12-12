@@ -6,7 +6,6 @@ import { colors } from '../../../constants/colors';
 import { Line } from './svg/Line';
 import { AddictiveElement } from './svg/AddictiveElement';
 import { Atom } from '../../shared/svg/Atom';
-import { SmallCircle } from '../../shared/svg/SmallCircle';
 import { TopLine } from './svg/TopLine';
 
 export const StyledCard = styled.div`
@@ -155,20 +154,6 @@ export const AtomStyled = styled(Atom)`
   height: 100%;
 `;
 
-export const SmallCircleStyledWrapper = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  overflow: hidden;
-  height: 11.4666vw;
-  width: 12.5333vw;
-`;
-
-export const SmallCircleStyled = styled(SmallCircle)`
-  width: 14.4vw;
-  height: 14.4vw;
-`;
 
 export const TopLineStyled = styled(TopLine)`
   position: absolute;
