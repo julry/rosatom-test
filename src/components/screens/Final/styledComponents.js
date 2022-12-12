@@ -53,7 +53,7 @@ export const MiniLabelWrapper = styled(FlexWrapper)`
   
   @media screen and (min-height: 700px) {
     margin: 3.2% 0;
-    min-height: none;
+    min-height: unset;
     height: ${({hasShortLabel}) => hasShortLabel ? '52px' : 'auto'};
   }
 `;
@@ -79,7 +79,8 @@ export const BluePlateWrapper = styled.div`
   display: flex;
   margin-left: 10px;
   width: calc(30% - 10px);
-  height: 100%;
+  height: 52px;
+
   @media screen and (min-height: 700px){
     width: calc(36% - 10px);
   }
@@ -145,23 +146,24 @@ export const AtomStyled = styled(Atom)`
 export const ContentWrapperStyled = styled(ContentWrapper)`
   display: grid;
   font-size: 12px;
-  grid-template-rows: minmax(42.666vw, 20vh) minmax(15.58em, 43.6281vh) 1fr;
+  grid-template-rows: minmax(42.666vw, 160px) minmax(15.58em, 275px) 1fr;
   grid-template-columns: 1fr;
 
-  @media screen and (min-height: 750px){
-    grid-template-rows: minmax(42.666vw, 20vh) minmax(15.58em, 40vh) 1fr;
+  @media screen and (min-height: 750px) and (max-width: 700px){
+    grid-template-rows: minmax(42.666vw, 160px) minmax(15.58em, 300px) 1fr;
   }
   
   @media screen and (max-height: 650px) {
-    grid-template-rows: minmax(35vw, 24vh);
+    grid-template-rows: minmax(35vw, 130px) minmax(15.58em, 275px) 1fr;
   }
 
   @media screen and (max-height: 550px) {
-    grid-template-rows: minmax(30vw, 24vh);
+    grid-template-rows: minmax(30vw, 110px) minmax(15.58em, 275px) 1fr;
   }
   
   @media screen and (min-width: 700px) {
     overflow-x: visible;
+    grid-template-rows: 24vh 330px 1fr;
   }
 `;
 
