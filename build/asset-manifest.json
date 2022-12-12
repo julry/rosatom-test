@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.d236f993.css",
-    "main.js": "./static/js/main.20601917.js",
+    "main.js": "./static/js/main.2b19edea.js",
     "static/media/Rosatom-Light.ttf": "./static/media/Rosatom-Light.29b0a57f02b2112f2cd5.ttf",
     "static/media/Rosatom-Regular.ttf": "./static/media/Rosatom-Regular.05ccb6ce475bc89de1e7.ttf",
     "static/media/Rosatom-Bold.ttf": "./static/media/Rosatom-Bold.f9d1a4ec532f17bb612f.ttf",
@@ -9,10 +9,10 @@
     "static/media/logo.svg": "./static/media/logo.aba7812d4ec3bd58a2aa86f3228ec64b.svg",
     "index.html": "./index.html",
     "main.d236f993.css.map": "./static/css/main.d236f993.css.map",
-    "main.20601917.js.map": "./static/js/main.20601917.js.map"
+    "main.2b19edea.js.map": "./static/js/main.2b19edea.js.map"
   },
   "entrypoints": [
     "static/css/main.d236f993.css",
-    "static/js/main.20601917.js"
+    "static/js/main.2b19edea.js"
   ]
 }
