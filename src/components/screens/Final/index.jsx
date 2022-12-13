@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useProgress } from '../../../hooks/useProgress';
 import { Description } from '../../shared/styledTexts';
-// import { reachMetrikaGoal } from '../../../utils/reachMetrikaGoal';
 import { resultTypes } from '../../../constants/resultTypes.config';
 import { BackgroundWrapper } from '../../shared/wrappers';
 import {
@@ -87,7 +86,7 @@ export const Final = () => {
                     )}
                 </Content>
                 <ButtonWrapper top={getLineTop()}>
-                    <ButtonStyled onClick={() => openHref('https://clck.ru/32rkiQ')}>я в деле!</ButtonStyled>
+                    <ButtonStyled onClick={() => openHref('https://clck.ru/32rkiQ', 'click')}>я в деле!</ButtonStyled>
                     <ButtonTextContainer>
                         <Emoji>👆🏻</Emoji>
                         <p ref={smallTextRef}>{'Знакомься с другими\nAtomic IT-котиками тут'} </p>

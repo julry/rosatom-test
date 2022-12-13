@@ -15,6 +15,7 @@ import {
 import { CARD_TYPES, QUESTION_TYPES } from '../../../constants/cards.config';
 import { LogoStyled } from '../../shared/LogoStyled';
 import { SWIPE_DURATION } from '../../../constants/durations';
+import { reachMetrikaGoal } from '../../../utils/reachMetrikaGoal';
 
 export const Card = (props) => {
     const {inProp, isAgreed, index, curIndex, amount, card, onAnswer} = props;
@@ -25,6 +26,7 @@ export const Card = (props) => {
 
     const onClick = (isAgreed) => {
         setClicked({isAgreed});
+        reachMetrikaGoal(curIndex === amount ? 'finish' : 'card'+ curIndex);
         onAnswer({isAgreed, card, index: curIndex});
     };
     const duration = SWIPE_DURATION;

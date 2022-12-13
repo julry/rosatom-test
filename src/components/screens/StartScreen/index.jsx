@@ -21,6 +21,7 @@ export const StartScreen = () => {
     const [isModal, setIsModal] = useState(false);
 
     const onStart = () => {
+        reachMetrikaGoal('start');
         setTimeout(() => {
             next();
         }, SWIPE_DELAY);
